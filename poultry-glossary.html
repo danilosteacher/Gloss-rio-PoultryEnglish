@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Glossary | Poultry English</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-deep: #0d2b1f;
+  --green-mid: #1a4a30;
+  --green-main: #1D9E75;
+  --green-light: #E1F5EE;
+  --green-pale: #f0faf5;
+  --gold: #c9a84c;
+  --red-light: #fef2f2;
+  --red-border: #fca5a5;
+  --red-text: #7f1d1d;
+  --text-primary: #0d1f17;
+  --text-secondary: #3d5a4a;
+  --text-muted: #7a9e8a;
+  --border: #d4e8dd;
+  --bg: #f7fbf8;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-primary);min-height:100vh;font-size:15px;line-height:1.6;}
+
+/* HEADER */
+.site-header{background:var(--green-deep);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.06);}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;color:var(--white);letter-spacing:0.02em;}
+.logo span{color:var(--green-main);}
+.header-meta{font-size:12px;color:rgba(255,255,255,0.4);font-weight:300;}
+
+/* HERO */
+.glossary-hero{background:var(--green-deep);padding:2.5rem 2rem 2rem;position:relative;overflow:hidden;}
+.glossary-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(29,158,117,0.13) 0%,transparent 70%);pointer-events:none;}
+.glossary-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green-main),transparent);}
+.hero-inner{max-width:760px;margin:0 auto;position:relative;}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.25rem;}
+.badge{font-size:11px;font-weight:500;padding:4px 12px;border-radius:99px;letter-spacing:0.04em;text-transform:uppercase;}
+.badge-bonus{background:rgba(201,168,76,0.15);color:var(--gold);border:1px solid rgba(201,168,76,0.2);}
+.badge-count{background:rgba(29,158,117,0.2);color:var(--green-main);border:1px solid rgba(29,158,117,0.3);}
+.badge-area{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);}
+.hero-eyebrow{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--green-main);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(22px,4vw,34px);font-weight:800;color:var(--white);line-height:1.2;margin-bottom:10px;}
+.hero-title em{color:var(--green-main);font-style:normal;}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.5);font-weight:300;max-width:520px;line-height:1.6;}
+
+/* STATS BAR */
+.stats-bar{background:var(--white);border-bottom:1px solid var(--border);padding:0.875rem 2rem;}
+.stats-inner{max-width:760px;margin:0 auto;display:flex;gap:24px;align-items:center;flex-wrap:wrap;}
+.stat-item{display:flex;align-items:center;gap:6px;}
+.stat-num{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--green-main);}
+.stat-label{font-size:12px;color:var(--text-muted);}
+.stat-divider{width:1px;height:28px;background:var(--border);}
+
+/* MAIN */
+.main{max-width:760px;margin:0 auto;padding:2rem 1.5rem 4rem;}
+.section{margin-bottom:2.5rem;}
+.section-label{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--green-main);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;display:flex;align-items:center;gap:8px;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.divider{height:1px;background:var(--border);margin:2rem 0;}
+
+/* MODO TOGGLE */
+.mode-toggle{display:flex;gap:0;background:var(--white);border:1px solid var(--border);border-radius:99px;padding:3px;width:fit-content;margin-bottom:1.5rem;}
+.mode-btn{padding:7px 20px;border-radius:99px;border:none;background:transparent;font-size:13px;font-weight:500;color:var(--text-secondary);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;display:flex;align-items:center;gap:6px;}
+.mode-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;flex-shrink:0;}
+.mode-btn.active{background:var(--green-main);color:var(--white);}
+.mode-btn.active svg{stroke:var(--white);}
+
+/* SEARCH BAR */
+.search-wrap{position:relative;margin-bottom:1.25rem;}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--text-muted);stroke-width:2;fill:none;}
+.search-input{width:100%;padding:11px 40px 11px 40px;border-radius:var(--radius);border:1px solid var(--border);background:var(--white);font-size:14px;color:var(--text-primary);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .15s;}
+.search-input:focus{border-color:var(--green-main);box-shadow:0 0 0 3px rgba(29,158,117,0.08);}
+.search-input::placeholder{color:var(--text-muted);}
+.search-clear{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted);padding:4px;display:none;}
+.search-clear svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;}
+.search-clear.show{display:flex;}
+.search-hint{font-size:12px;color:var(--text-muted);margin-top:6px;}
+
+/* FILTROS */
+.filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem;}
+.filter-btn{padding:6px 14px;border-radius:99px;border:1px solid var(--border);background:var(--white);font-size:12px;font-weight:500;color:var(--text-secondary);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;display:flex;align-items:center;gap:5px;}
+.filter-btn:hover{background:var(--green-pale);border-color:var(--green-main);}
+.filter-btn.active{background:var(--green-light);border-color:var(--green-main);color:#085041;}
+.filter-dot{width:7px;height:7px;border-radius:50%;}
+
+/* ÁREA FILTER DOTS */
+.dot-all{background:var(--green-main);}
+.dot-broiler{background:#e67e22;}
+.dot-layer{background:#8e44ad;}
+.dot-hatchery{background:#2980b9;}
+.dot-breeder{background:#c0392b;}
+.dot-nutrition{background:#27ae60;}
+.dot-health{background:#16a085;}
+.dot-welfare{background:#d35400;}
+.dot-slaughter{background:#7f8c8d;}
+.dot-export{background:#2c3e50;}
+.dot-audit{background:#c9a84c;}
+.dot-genetics{background:#1abc9c;}
+.dot-equipment{background:#e74c3c;}
+.dot-environment{background:#3498db;}
+
+/* SITUAÇÃO FILTER */
+.filter-row-sit{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.5rem;}
+.sit-btn{padding:5px 12px;border-radius:99px;border:1px solid var(--border);background:var(--white);font-size:11px;font-weight:500;color:var(--text-secondary);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.sit-btn:hover{background:var(--green-pale);border-color:var(--green-main);}
+.sit-btn.active{background:rgba(201,168,76,0.15);border-color:var(--gold);color:#7a5c00;}
+
+/* RESULTS COUNT */
+.results-count{font-size:12px;color:var(--text-muted);margin-bottom:1rem;}
+.results-count span{color:var(--green-main);font-weight:500;}
+
+/* GLOSSÁRIO CARDS - MODO CONSULTA */
+.gloss-grid{display:flex;flex-direction:column;gap:8px;}
+.gloss-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .15s,box-shadow .15s;cursor:pointer;}
+.gloss-card:hover{border-color:var(--green-main);box-shadow:0 0 0 3px rgba(29,158,117,0.07);}
+.gloss-card.known{border-left:4px solid var(--green-main);}
+.gloss-card.review{border-left:4px solid var(--gold);}
+.gloss-card-header{display:flex;align-items:center;gap:12px;padding:1rem 1.25rem;}
+.gloss-area-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.gloss-term{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--text-primary);flex:1;}
+.gloss-ipa{font-size:12px;color:var(--text-muted);font-style:italic;}
+.gloss-actions{display:flex;gap:6px;align-items:center;}
+.gloss-audio-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;flex-shrink:0;}
+.gloss-audio-btn:hover,.gloss-audio-btn.playing{background:var(--green-light);border-color:var(--green-main);}
+.gloss-audio-btn svg{width:13px;height:13px;stroke:var(--text-secondary);stroke-width:2;fill:none;}
+.gloss-audio-btn.playing svg{stroke:var(--green-main);}
+.gloss-know-btn{width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;flex-shrink:0;font-size:14px;}
+.gloss-know-btn:hover{background:var(--green-light);border-color:var(--green-main);}
+.gloss-know-btn.known{background:var(--green-light);border-color:var(--green-main);}
+.gloss-know-btn.review{background:rgba(201,168,76,0.15);border-color:var(--gold);}
+.gloss-chevron{width:20px;height:20px;flex-shrink:0;stroke:var(--text-muted);stroke-width:2;fill:none;transition:transform .2s;}
+.gloss-card.open .gloss-chevron{transform:rotate(180deg);}
+.gloss-card-body{display:none;padding:0 1.25rem 1.25rem;border-top:1px solid var(--border);margin-top:0;}
+.gloss-card.open .gloss-card-body{display:block;}
+.gloss-translation{font-family:'Syne',sans-serif;font-size:16px;font-weight:600;color:var(--green-main);margin-bottom:10px;margin-top:12px;}
+.gloss-example{font-size:13px;color:var(--text-secondary);line-height:1.7;border-left:3px solid var(--green-main);padding-left:12px;margin-bottom:6px;}
+.gloss-example-pt{font-size:12px;color:var(--text-muted);padding-left:15px;font-style:italic;margin-bottom:10px;}
+.gloss-why{font-size:12px;background:var(--green-light);color:#085041;padding:6px 14px;border-radius:99px;display:inline-block;margin-bottom:10px;}
+.gloss-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;}
+.gloss-tag{font-size:10px;padding:3px 9px;border-radius:99px;border:1px solid var(--border);background:var(--bg);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em;}
+.gloss-tag.sit-tag{background:rgba(201,168,76,0.1);border-color:rgba(201,168,76,0.3);color:#7a5c00;}
+.gloss-ex-audio{display:flex;gap:6px;align-items:center;margin-bottom:4px;}
+.abtn-small{display:flex;align-items:center;gap:5px;padding:5px 12px;border-radius:99px;border:1px solid var(--border);background:transparent;font-size:11px;color:var(--text-secondary);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.abtn-small:hover,.abtn-small.playing{background:var(--green-light);border-color:var(--green-main);color:var(--green-main);}
+.abtn-small svg{width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;}
+
+/* MODO ESTUDO (FLASHCARD) */
+.study-area{display:none;}
+.study-area.visible{display:block;}
+.study-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:10px;}
+.study-counter-wrap{display:flex;align-items:center;gap:10px;}
+.study-counter{font-size:13px;color:var(--text-muted);}
+.study-dots{display:flex;gap:4px;flex-wrap:wrap;max-width:300px;}
+.study-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .2s;}
+.study-dot.active{background:var(--green-main);transform:scale(1.3);}
+.study-dot.done-known{background:var(--green-main);opacity:.45;}
+.study-dot.done-review{background:var(--gold);opacity:.6;}
+.study-nav-btns{display:flex;gap:6px;}
+.study-nav-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;}
+.study-nav-btn:hover{background:var(--green-light);border-color:var(--green-main);}
+.study-nav-btn svg{width:14px;height:14px;stroke:var(--text-secondary);stroke-width:2;fill:none;}
+.study-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 1.5rem;gap:10px;cursor:pointer;transition:border-color .2s,box-shadow .2s;position:relative;user-select:none;}
+.study-card:hover{border-color:var(--green-main);box-shadow:0 0 0 3px rgba(29,158,117,0.08);}
+.study-corner-label{position:absolute;top:1rem;right:1rem;font-size:10px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;}
+.study-front,.study-back{width:100%;}
+.study-back{display:none;}
+.study-back.visible{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.study-front.hidden{display:none;}
+.study-area-label{font-size:11px;font-weight:500;color:var(--green-main);text-transform:uppercase;letter-spacing:.06em;}
+.study-word{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:var(--text-primary);line-height:1.2;}
+.study-ipa{font-size:13px;color:var(--text-muted);font-style:italic;}
+.study-hint{font-size:12px;color:var(--text-muted);margin-top:6px;}
+.study-audio-row{display:flex;gap:8px;align-items:center;}
+.spd-btn{padding:4px 10px;border-radius:99px;border:1px solid var(--border);background:transparent;font-size:11px;color:var(--text-muted);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.spd-btn.active{background:var(--green-light);border-color:var(--green-main);color:var(--green-main);}
+.study-translation{font-family:'Syne',sans-serif;font-size:21px;font-weight:600;color:var(--green-main);}
+.study-ex{font-size:13px;color:var(--text-secondary);line-height:1.7;border-left:3px solid var(--green-main);padding-left:12px;text-align:left;width:100%;}
+.study-ex-pt{font-size:12px;color:var(--text-muted);padding-left:15px;text-align:left;width:100%;font-style:italic;}
+.study-why{font-size:12px;background:var(--green-light);color:#085041;padding:6px 14px;border-radius:99px;margin-top:4px;}
+.study-decision-row{display:flex;gap:10px;justify-content:center;margin-top:1.25rem;}
+.decision-btn{display:flex;align-items:center;gap:7px;padding:9px 22px;border-radius:99px;border:1px solid var(--border);background:var(--white);font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.decision-btn.known{border-color:var(--green-main);color:var(--green-main);}
+.decision-btn.known:hover{background:var(--green-light);}
+.decision-btn.review{border-color:var(--gold);color:#7a5c00;}
+.decision-btn.review:hover{background:rgba(201,168,76,0.1);}
+.decision-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;}
+.study-progress-bar{height:4px;background:var(--border);border-radius:99px;margin-bottom:1.25rem;overflow:hidden;}
+.study-progress-fill{height:100%;background:linear-gradient(90deg,var(--green-main),var(--gold));border-radius:99px;transition:width .4s ease;}
+.study-summary{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;text-align:center;display:none;}
+.study-summary.show{display:block;}
+.summary-nums{display:flex;justify-content:center;gap:32px;margin:1.25rem 0;}
+.summary-num{text-align:center;}
+.summary-val{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;line-height:1;}
+.summary-val.green{color:var(--green-main);}
+.summary-val.gold{color:var(--gold);}
+.summary-desc{font-size:12px;color:var(--text-muted);margin-top:4px;}
+.btn-restart{padding:9px 22px;border-radius:99px;border:1px solid var(--border);background:var(--white);font-size:13px;color:var(--text-secondary);cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:0.5rem;}
+.btn-restart:hover{background:var(--green-light);}
+
+/* REVIEW QUEUE BANNER */
+.review-banner{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:1.25rem;flex-wrap:wrap;}
+.review-banner-text{font-size:13px;color:#7a5c00;flex:1;}
+.review-banner-text strong{font-weight:600;}
+.btn-review-queue{padding:7px 16px;border-radius:99px;border:1px solid rgba(201,168,76,0.4);background:var(--white);font-size:12px;font-weight:500;color:#7a5c00;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;white-space:nowrap;}
+.btn-review-queue:hover{background:rgba(201,168,76,0.15);}
+
+/* SEÇÃO CONFUSÕES */
+.confusions-grid{display:flex;flex-direction:column;gap:12px;}
+.confusion-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;cursor:pointer;transition:border-color .15s;}
+.confusion-card:hover{border-color:var(--gold);}
+.confusion-card.open{border-color:var(--gold);}
+.confusion-header{display:flex;align-items:center;gap:10px;}
+.confusion-vs{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--text-primary);flex:1;}
+.confusion-vs em{color:var(--gold);font-style:normal;}
+.confusion-badge{font-size:10px;padding:3px 10px;border-radius:99px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);color:#7a5c00;font-weight:500;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
+.confusion-chevron{width:18px;height:18px;stroke:var(--text-muted);stroke-width:2;fill:none;transition:transform .2s;flex-shrink:0;}
+.confusion-card.open .confusion-chevron{transform:rotate(180deg);}
+.confusion-body{display:none;margin-top:1rem;border-top:1px solid var(--border);padding-top:1rem;}
+.confusion-card.open .confusion-body{display:block;}
+.confusion-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.confusion-term-block{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem;}
+.confusion-term{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:3px;}
+.confusion-term-trans{font-size:12px;color:var(--green-main);font-weight:500;margin-bottom:6px;}
+.confusion-term-ex{font-size:12px;color:var(--text-secondary);line-height:1.5;font-style:italic;}
+.confusion-rule{background:var(--green-pale);border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.875rem 1rem;font-size:13px;color:var(--text-secondary);line-height:1.6;}
+.confusion-rule strong{color:var(--text-primary);font-weight:500;}
+
+/* SIGLAS */
+.acronyms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px;}
+.acronym-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.25rem;cursor:pointer;transition:border-color .15s;}
+.acronym-card:hover{border-color:var(--green-main);}
+.acronym-card.open{border-color:var(--green-main);}
+.acronym-header{display:flex;align-items:center;gap:10px;}
+.acronym-code{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--green-main);line-height:1;flex-shrink:0;min-width:64px;}
+.acronym-expansion{font-size:13px;color:var(--text-secondary);flex:1;line-height:1.4;}
+.acronym-chevron{width:16px;height:16px;stroke:var(--text-muted);stroke-width:2;fill:none;transition:transform .2s;flex-shrink:0;}
+.acronym-card.open .acronym-chevron{transform:rotate(180deg);}
+.acronym-body{display:none;margin-top:10px;border-top:1px solid var(--border);padding-top:10px;}
+.acronym-card.open .acronym-body{display:block;}
+.acronym-context{font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:8px;}
+.acronym-how{font-size:12px;background:var(--green-light);color:#085041;padding:6px 12px;border-radius:var(--radius-sm);margin-bottom:6px;}
+.acronym-ex{font-size:12px;color:var(--text-muted);font-style:italic;border-left:3px solid var(--green-main);padding-left:10px;}
+
+/* FRASES PRONTAS */
+.phrases-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem;}
+.phrase-sit-btn{padding:6px 14px;border-radius:99px;border:1px solid var(--border);background:var(--white);font-size:12px;font-weight:500;color:var(--text-secondary);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.phrase-sit-btn:hover{background:var(--green-pale);border-color:var(--green-main);}
+.phrase-sit-btn.active{background:var(--green-light);border-color:var(--green-main);color:#085041;}
+.phrases-grid{display:flex;flex-direction:column;gap:8px;}
+.phrase-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.25rem;display:flex;align-items:flex-start;gap:12px;}
+.phrase-icon{width:34px;height:34px;border-radius:50%;background:var(--green-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.phrase-icon svg{width:16px;height:16px;stroke:var(--green-main);stroke-width:2;fill:none;}
+.phrase-content{flex:1;}
+.phrase-sit-label{font-size:10px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;}
+.phrase-en{font-size:14px;font-weight:500;color:var(--text-primary);margin-bottom:4px;line-height:1.5;}
+.phrase-pt{font-size:12px;color:var(--text-muted);font-style:italic;line-height:1.5;}
+.phrase-audio-btn{width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;flex-shrink:0;margin-top:1px;}
+.phrase-audio-btn:hover,.phrase-audio-btn.playing{background:var(--green-light);border-color:var(--green-main);}
+.phrase-audio-btn svg{width:12px;height:12px;stroke:var(--text-secondary);stroke-width:2;fill:none;}
+
+/* VOICE ROW */
+.voice-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:1rem;}
+.voice-label{font-size:12px;color:var(--text-muted);}
+.vbtn{padding:4px 12px;border-radius:99px;border:1px solid var(--border);background:transparent;font-size:12px;color:var(--text-secondary);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.vbtn:hover{background:var(--green-light);border-color:var(--green-main);}
+.vbtn.active{background:var(--green-light);color:var(--green-main);border-color:var(--green-main);font-weight:500;}
+.voices-loading{font-size:12px;color:var(--text-muted);font-style:italic;}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--green-deep);color:var(--white);padding:10px 18px;border-radius:var(--radius);font-size:13px;font-weight:500;opacity:0;transform:translateY(8px);transition:all .3s;pointer-events:none;z-index:200;}
+.toast.show{opacity:1;transform:translateY(0);}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:3rem 1rem;color:var(--text-muted);}
+.empty-state svg{width:40px;height:40px;stroke:var(--border);stroke-width:1.5;fill:none;margin-bottom:12px;}
+.empty-state p{font-size:14px;}
+
+@media(max-width:600px){
+  .glossary-hero{padding:2rem 1.25rem 1.75rem;}
+  .main{padding:1.5rem 1rem 3rem;}
+  .stats-bar{padding:0.75rem 1.25rem;}
+  .stats-inner{gap:14px;}
+  .stat-num{font-size:16px;}
+  .confusion-pair{grid-template-columns:1fr;}
+  .acronyms-grid{grid-template-columns:1fr;}
+  .study-decision-row{flex-direction:column;}
+  .decision-btn{justify-content:center;}
+  .study-dots{max-width:220px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">POULTRY <span>ENGLISH</span></div>
+  <div class="header-meta">Master Glossary · Bônus exclusivo</div>
+</header>
+
+<div class="glossary-hero">
+  <div class="hero-inner">
+    <div class="hero-badges">
+      <span class="badge badge-bonus">⭐ Bônus</span>
+      <span class="badge badge-count" id="total-badge">520+ termos</span>
+      <span class="badge badge-area">14 áreas</span>
+    </div>
+    <div class="hero-eyebrow">Poultry English</div>
+    <h1 class="hero-title">Master Glossary —<br><em>do galpão à exportação</em></h1>
+    <p class="hero-sub">O único glossário de inglês técnico para avicultura com áudio, frases reais, filtro por situação e sistema de revisão. Consulte no campo, antes da call, na frente do auditor.</p>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num" id="stat-total">520</div><div class="stat-label">termos</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-num" id="stat-known" style="color:var(--green-main)">0</div><div class="stat-label">já sei</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-num" id="stat-review" style="color:var(--gold)">0</div><div class="stat-label">revisar</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-num" id="stat-pct" style="color:var(--green-main)">0%</div><div class="stat-label">dominados</div></div>
+  </div>
+</div>
+
+<main class="main">
+
+<!-- SEÇÃO NAVEGAÇÃO -->
+<section class="section">
+  <div class="section-label">Seções do glossário</div>
+  <div class="filter-row">
+    <button class="filter-btn active" onclick="showSection('terms')">📚 Termos</button>
+    <button class="filter-btn" onclick="showSection('confusions')">⚠️ Cuidado com a confusão</button>
+    <button class="filter-btn" onclick="showSection('acronyms')">🔤 Siglas</button>
+    <button class="filter-btn" onclick="showSection('phrases')">💬 Frases prontas</button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SEÇÃO: TERMOS -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="sec-terms">
+
+  <!-- MODO TOGGLE -->
+  <div class="mode-toggle">
+    <button class="mode-btn active" id="btn-consult" onclick="setMode('consult')">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>Consulta rápida
+    </button>
+    <button class="mode-btn" id="btn-study" onclick="setMode('study')">
+      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Modo estudo
+    </button>
+  </div>
+
+  <!-- BUSCA -->
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="search-input" class="search-input" placeholder="Buscar em inglês ou português... ex: FCR, conversão, cama" oninput="handleSearch(this.value)">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="search-hint" id="search-hint">Digite o termo em inglês ou a tradução em português</div>
+
+  <!-- VOZ -->
+  <div class="voice-row">
+    <span class="voice-label">Voz:</span>
+    <span class="voices-loading" id="voice-status">Carregando vozes…</span>
+    <div id="voice-btns"></div>
+  </div>
+
+  <!-- FILTRO POR ÁREA -->
+  <div style="margin-bottom:0.5rem;"><span style="font-size:11px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;">Área</span></div>
+  <div class="filter-row" id="area-filters">
+    <button class="filter-btn active" onclick="setArea('all')" data-area="all"><span class="filter-dot" style="background:var(--green-main)"></span>Todos</button>
+    <button class="filter-btn" onclick="setArea('broiler')" data-area="broiler"><span class="filter-dot dot-broiler"></span>Frango de corte</button>
+    <button class="filter-btn" onclick="setArea('layer')" data-area="layer"><span class="filter-dot dot-layer"></span>Poedeiras</button>
+    <button class="filter-btn" onclick="setArea('hatchery')" data-area="hatchery"><span class="filter-dot dot-hatchery"></span>Incubatório</button>
+    <button class="filter-btn" onclick="setArea('breeder')" data-area="breeder"><span class="filter-dot dot-breeder"></span>Matrizes</button>
+    <button class="filter-btn" onclick="setArea('nutrition')" data-area="nutrition"><span class="filter-dot dot-nutrition"></span>Nutrição</button>
+    <button class="filter-btn" onclick="setArea('health')" data-area="health"><span class="filter-dot dot-health"></span>Saúde</button>
+    <button class="filter-btn" onclick="setArea('welfare')" data-area="welfare"><span class="filter-dot dot-welfare"></span>Bem-estar</button>
+    <button class="filter-btn" onclick="setArea('slaughter')" data-area="slaughter"><span class="filter-dot dot-slaughter"></span>Abate</button>
+    <button class="filter-btn" onclick="setArea('export')" data-area="export"><span class="filter-dot dot-export"></span>Exportação</button>
+    <button class="filter-btn" onclick="setArea('audit')" data-area="audit"><span class="filter-dot dot-audit"></span>Auditorias</button>
+    <button class="filter-btn" onclick="setArea('genetics')" data-area="genetics"><span class="filter-dot dot-genetics"></span>Genética</button>
+    <button class="filter-btn" onclick="setArea('equipment')" data-area="equipment"><span class="filter-dot dot-equipment"></span>Equipamentos</button>
+    <button class="filter-btn" onclick="setArea('environment')" data-area="environment"><span class="filter-dot dot-environment"></span>Ambiência</button>
+  </div>
+
+  <!-- FILTRO POR SITUAÇÃO -->
+  <div style="margin-bottom:0.5rem;margin-top:0.75rem;"><span style="font-size:11px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;">Situação de uso</span></div>
+  <div class="filter-row-sit" id="sit-filters">
+    <button class="sit-btn active" onclick="setSit('all')">Todas</button>
+    <button class="sit-btn" onclick="setSit('audit')">Auditoria</button>
+    <button class="sit-btn" onclick="setSit('call')">Call / Videoconferência</button>
+    <button class="sit-btn" onclick="setSit('visit')">Visita técnica</button>
+    <button class="sit-btn" onclick="setSit('report')">Flock report</button>
+    <button class="sit-btn" onclick="setSit('email')">E-mail</button>
+    <button class="sit-btn" onclick="setSit('fair')">Feira</button>
+    <button class="sit-btn" onclick="setSit('label')">Rótulo / bula</button>
+    <button class="sit-btn" onclick="setSit('review')">⭐ Para revisar</button>
+  </div>
+
+  <!-- REVIEW BANNER -->
+  <div class="review-banner" id="review-banner" style="display:none;">
+    <div class="review-banner-text">Você tem <strong id="review-count-banner">0</strong> termos marcados para revisar. Quer estudar só eles agora?</div>
+    <button class="btn-review-queue" onclick="studyReviewQueue()">Estudar fila de revisão →</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results-count"><span id="results-num">–</span> termos encontrados</div>
+
+  <!-- CONSULTA RÁPIDA -->
+  <div id="consult-area">
+    <div class="gloss-grid" id="gloss-grid"></div>
+    <div class="empty-state" id="empty-state" style="display:none;">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <p>Nenhum termo encontrado.<br>Tente outra palavra.</p>
+    </div>
+  </div>
+
+  <!-- MODO ESTUDO -->
+  <div class="study-area" id="study-area">
+    <div class="study-progress-bar"><div class="study-progress-fill" id="study-prog-fill" style="width:0%"></div></div>
+    <div class="study-header">
+      <div class="study-counter-wrap">
+        <span class="study-counter" id="study-counter">1 de 1</span>
+        <div class="study-dots" id="study-dots"></div>
+      </div>
+      <div class="study-nav-btns">
+        <button class="study-nav-btn" onclick="studyNav(-1)"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="study-nav-btn" onclick="studyNav(1)"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+    </div>
+    <div class="study-card" id="study-card" onclick="flipStudyCard()">
+      <div class="study-corner-label" id="study-corner-label">Toque para ver a tradução</div>
+      <div class="study-front" id="study-front">
+        <div class="study-area-label" id="study-area-label"></div>
+        <div class="study-word" id="study-word"></div>
+        <div class="study-ipa" id="study-ipa"></div>
+        <div class="study-audio-row" onclick="event.stopPropagation()">
+          <button class="abtn-small" id="study-abtn-word" onclick="studySayWord()"><svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>Ouvir</button>
+          <button class="spd-btn active" id="study-spd1" onclick="event.stopPropagation();setStudySpd(1,this)">1×</button>
+          <button class="spd-btn" id="study-spd07" onclick="event.stopPropagation();setStudySpd(0.7,this)">0.7×</button>
+        </div>
+        <div class="study-hint">Toque para ver tradução e uso real</div>
+      </div>
+      <div class="study-back" id="study-back">
+        <div class="study-translation" id="study-trans"></div>
+        <div class="study-audio-row" onclick="event.stopPropagation()">
+          <button class="abtn-small" id="study-abtn-ex" onclick="studySayEx()"><svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>Ouvir frase</button>
+          <button class="spd-btn active" id="study-exspd1" onclick="event.stopPropagation();setStudyExSpd(1,this)">1×</button>
+          <button class="spd-btn" id="study-exspd07" onclick="event.stopPropagation();setStudyExSpd(0.7,this)">0.7×</button>
+        </div>
+        <div class="study-ex" id="study-ex"></div>
+        <div class="study-ex-pt" id="study-ex-pt"></div>
+        <div class="study-why" id="study-why"></div>
+      </div>
+    </div>
+    <div class="study-decision-row" id="study-decision-row" style="display:none;">
+      <button class="decision-btn known" onclick="markStudy('known')"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Já sei</button>
+      <button class="decision-btn review" onclick="markStudy('review')"><svg viewBox="0 0 24 24"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>Revisar depois</button>
+    </div>
+    <div class="study-summary" id="study-summary">
+      <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:8px;">Sessão concluída!</div>
+      <div style="font-size:14px;color:var(--text-muted);">Você revisou todos os termos selecionados.</div>
+      <div class="summary-nums">
+        <div class="summary-num"><div class="summary-val green" id="sum-known">0</div><div class="summary-desc">Já sei</div></div>
+        <div class="summary-num"><div class="summary-val gold" id="sum-review">0</div><div class="summary-desc">Para revisar</div></div>
+      </div>
+      <button class="btn-restart" onclick="restartStudy()">Estudar novamente</button>
+    </div>
+  </div>
+</div><!-- /sec-terms -->
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SEÇÃO: CUIDADO COM A CONFUSÃO -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="sec-confusions" style="display:none;">
+  <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:13px;color:#7a5c00;line-height:1.6;">
+    <strong style="font-weight:600;">Por que essa seção existe:</strong> Os pares abaixo são responsáveis por 80% dos erros de comunicação que profissionais da avicultura cometem em inglês. Cada par tem a mesma raiz semântica mas significados diferentes — e usar o errado numa auditoria ou call tem consequência real.
+  </div>
+  <div class="confusions-grid" id="confusions-grid"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SEÇÃO: SIGLAS -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="sec-acronyms" style="display:none;">
+  <div style="font-size:13px;color:var(--text-muted);margin-bottom:1.25rem;line-height:1.6;">Clique em qualquer sigla para ver a expansão completa, como pronunciar em inglês e um exemplo de uso real.</div>
+  <div class="acronyms-grid" id="acronyms-grid"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SEÇÃO: FRASES PRONTAS -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="sec-phrases" style="display:none;">
+  <div style="font-size:13px;color:var(--text-muted);margin-bottom:1.25rem;line-height:1.6;">Frases reais organizadas por situação. Clique no ícone de áudio para ouvir antes de usar.</div>
+  <div class="phrases-filter" id="phrases-filter">
+    <button class="phrase-sit-btn active" onclick="filterPhrases('all')">Todas</button>
+    <button class="phrase-sit-btn" onclick="filterPhrases('audit')">Auditoria</button>
+    <button class="phrase-sit-btn" onclick="filterPhrases('call')">Call</button>
+    <button class="phrase-sit-btn" onclick="filterPhrases('visit')">Visita técnica</button>
+    <button class="phrase-sit-btn" onclick="filterPhrases('report')">Relatório</button>
+    <button class="phrase-sit-btn" onclick="filterPhrases('fair')">Feira</button>
+    <button class="phrase-sit-btn" onclick="filterPhrases('email')">E-mail</button>
+  </div>
+  <div class="phrases-grid" id="phrases-grid"></div>
+</div>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// DADOS — TERMOS
+// ═══════════════════════════════════════════════════════════════
+const TERMS = [
+// ── CICLO PRODUTIVO GERAL ─────────────────────────────────────
+{id:'t001',area:'broiler',sit:['report','visit'],term:'Flock placement',ipa:'/flɒk ˈpleɪsmənt/',trans:'Alojamento do lote',ex:'Flock placement is scheduled for Monday at 06:00 AM. We expect 45,000 day-old chicks.',pt:'→ O alojamento do lote está programado para segunda-feira às 06h.',why:'Primeiro evento registrado em qualquer flock report — sempre com data, hora e quantidade'},
+{id:'t002',area:'broiler',sit:['report','visit'],term:'Day-old chick',ipa:'/deɪ oʊld tʃɪk/',trans:'Pinto de um dia',ex:'We received 44,850 day-old chicks out of the 45,000 ordered.',pt:'→ Recebemos 44.850 pintos de um dia dos 45.000 encomendados.',why:'Aparece em todo documento de entrega e relatório inicial do lote'},
+{id:'t003',area:'broiler',sit:['report'],term:'Stocking density',ipa:'/ˈstɒkɪŋ ˈdɛnsɪti/',trans:'Densidade de alojamento',ex:'Our current stocking density is 33 kg/m², which meets BRC audit requirements.',pt:'→ Nossa densidade atual é 33 kg/m², dentro dos requisitos do BRC.',why:'Parâmetro crítico em auditorias de bem-estar animal e certificações europeias'},
+{id:'t004',area:'broiler',sit:['report','visit'],term:'Flock cycle',ipa:'/flɒk ˈsaɪkəl/',trans:'Ciclo do lote',ex:'This is flock cycle number 6 for building 3, with a 14-day downtime between flocks.',pt:'→ Este é o 6º ciclo do lote no galpão 3, com 14 dias de vazio sanitário.',why:'Informa ao auditor a frequência de uso das instalações e o histórico do galpão'},
+{id:'t005',area:'broiler',sit:['report'],term:'Flock depletion',ipa:'/flɒk dɪˈpliːʃən/',trans:'Saída das aves / abate',ex:'Flock depletion is planned for day 42, targeting a live weight of 2.85 kg.',pt:'→ A saída das aves está planejada para o dia 42, com peso vivo alvo de 2,85 kg.',why:'Termo usado em manuais Cobb e Ross para indicar o fim do ciclo produtivo'},
+{id:'t006',area:'broiler',sit:['report'],term:'Livability',ipa:'/ˌlɪvəˈbɪlɪti/',trans:'Viabilidade / taxa de sobrevivência',ex:'Final livability was 97.2%, which is above our target of 96.5%.',pt:'→ A viabilidade final foi 97,2%, acima da meta de 96,5%.',why:'KPI central de qualquer flock report — quanto da produção chegou viva ao final'},
+{id:'t007',area:'broiler',sit:['report'],term:'Grow-out period',ipa:'/ɡroʊ aʊt ˈpɪəriəd/',trans:'Período de engorda / fase de criação',ex:'The grow-out period lasted 42 days, with average daily gain meeting Cobb targets.',pt:'→ O período de engorda durou 42 dias, com GPD dentro das metas Cobb.',why:'Termo padrão dos manuais americanos — equivalente a "flock cycle" em contextos europeus'},
+{id:'t008',area:'broiler',sit:['report','audit'],term:'Mortality rate',ipa:'/mɔːˈtælɪti reɪt/',trans:'Taxa de mortalidade',ex:'Weekly mortality rate this cycle: 0.2%, 0.3%, 0.1%, 0.2%, 0.1%, 0.1%.',pt:'→ Taxa de mortalidade semanal: 0,2%, 0,3%, 0,1%, 0,2%, 0,1%, 0,1%.',why:'Distinguir de culls — mortalidade é morte natural ou por doença, culls são aves descartadas'},
+// ── FRANGO DE CORTE ────────────────────────────────────────────
+{id:'t010',area:'broiler',sit:['report'],term:'Feed conversion ratio',ipa:'/fiːd kənˈvɜːʃən ˈreɪʃiəʊ/',trans:'Conversão alimentar',ex:'Our FCR at day 35 was 1.62, compared to the Ross 308 target of 1.60.',pt:'→ Nossa CA no dia 35 foi 1,62, versus a meta Ross 308 de 1,60.',why:'O KPI mais citado em qualquer reunião com fornecedor de genética ou nutricionista'},
+{id:'t011',area:'broiler',sit:['report'],term:'Average daily gain',ipa:'/ˈævərɪdʒ ˈdeɪli ɡeɪn/',trans:'Ganho de peso diário médio',ex:'Average daily gain this week was 84.3 grams, slightly below the Cobb 500 target.',pt:'→ O GPD desta semana foi 84,3 gramas, levemente abaixo da meta Cobb 500.',why:'GPD em inglês — aparece como ADG em todos os documentos internacionais'},
+{id:'t012',area:'broiler',sit:['report'],term:'European Efficiency Factor',ipa:'/ˌjʊərəˈpiːən ɪˈfɪʃənsi ˈfæktər/',trans:'Fator de Eficiência Europeu',ex:'Our EEF this cycle was 412, which places us in the top 15% of the company\'s farms.',pt:'→ Nosso FEE neste ciclo foi 412, colocando-nos nos 15% melhores da empresa.',why:'Índice combinado usado por integradores europeus — combina mortalidade, GPD, CA e peso final'},
+{id:'t013',area:'broiler',sit:['visit','report'],term:'Uniformity index',ipa:'/ˌjuːnɪˈfɔːmɪti ˈɪndeks/',trans:'Índice de uniformidade',ex:'Uniformity index at day 21 is 82%, which is acceptable but below our 85% target.',pt:'→ O índice de uniformidade no dia 21 é 82%, aceitável mas abaixo da meta de 85%.',why:'Crítico para poedeiras e matrizes — auditores perguntam isso em qualquer visita de manejo'},
+{id:'t014',area:'broiler',sit:['visit'],term:'Brooding phase',ipa:'/ˈbruːdɪŋ feɪz/',trans:'Fase de pinteiro',ex:'We are currently in the brooding phase — days 1 to 14 with temperature at 32°C.',pt:'→ Estamos na fase de pinteiro — dias 1 a 14 com temperatura a 32°C.',why:'Denomina a fase mais crítica do lote — base de qualquer conversa com técnico estrangeiro'},
+{id:'t015',area:'broiler',sit:['visit'],term:'Heat source',ipa:'/hiːt sɔːrs/',trans:'Fonte de aquecimento',ex:'We use radiant gas brooders as our primary heat source for the first 10 days.',pt:'→ Usamos campânulas radiantes a gás como fonte principal de aquecimento nos primeiros 10 dias.',why:'Primeira pergunta de qualquer supervisor estrangeiro ao entrar no pinteiro'},
+{id:'t016',area:'broiler',sit:['visit'],term:'Chick behavior',ipa:'/tʃɪk bɪˈheɪvjər/',trans:'Comportamento dos pintinhos',ex:'Chick behavior at placement showed even distribution — no signs of huddling or panting.',pt:'→ O comportamento dos pintinhos no alojamento mostrou distribuição uniforme.',why:'Termo usado para relatar condições de conforto no pinteiro em relatórios de visita técnica'},
+{id:'t017',area:'broiler',sit:['visit'],term:'Huddling',ipa:'/ˈhʌdlɪŋ/',trans:'Amontoamento (frio)',ex:'Chicks were huddling under the brooder — we adjusted the temperature immediately.',pt:'→ Os pintinhos estavam se amontoando sob a campânula — ajustamos a temperatura imediatamente.',why:'Sinal visual de frio ou corrente de ar — causa de mortalidade por esmagamento nas primeiras 48h'},
+{id:'t018',area:'broiler',sit:['visit'],term:'Spreading',ipa:'/ˈsprɛdɪŋ/',trans:'Distribuição uniforme (temperatura ideal)',ex:'Chicks spreading evenly around the brooder indicates the temperature is correct.',pt:'→ Pintinhos distribuídos uniformemente ao redor da campânula indicam temperatura correta.',why:'Comportamento ideal descrito nos checklists de visita técnica da Cobb e Ross'},
+{id:'t019',area:'broiler',sit:['visit'],term:'Panting',ipa:'/ˈpæntɪŋ/',trans:'Ofego (calor)',ex:'Chicks were panting and moving away from the heat source — clear sign of overheating.',pt:'→ Pintinhos ofegantes e se afastando da fonte de calor — sinal claro de sobreaquecimento.',why:'Oposto do huddling — indica temperatura acima do ideal ou ventilação insuficiente'},
+{id:'t020',area:'broiler',sit:['visit','report'],term:'Litter',ipa:'/ˈlɪtər/',trans:'Cama aviária',ex:'Litter moisture was checked at 25% — within the acceptable range of 20–30%.',pt:'→ A umidade da cama foi verificada em 25% — dentro do intervalo aceitável de 20–30%.',why:'Cama é o termo mais monitorado em auditorias de bem-estar e biosseguridade'},
+{id:'t021',area:'broiler',sit:['visit','report'],term:'Caking',ipa:'/ˈkeɪkɪŋ/',trans:'Empedramento da cama',ex:'Caking was observed near the drinker lines — we removed the affected area.',pt:'→ Empedramento foi observado próximo às linhas de bebedouros — removemos a área afetada.',why:'Indicador de problema de ventilação ou de vazamento de bebedouro — auditores verificam visualmente'},
+{id:'t022',area:'broiler',sit:['report','audit'],term:'Ammonia level',ipa:'/əˈmoʊniə ˈlɛvəl/',trans:'Nível de amônia',ex:'Ammonia level was measured at 18 ppm — below the 25 ppm welfare threshold.',pt:'→ O nível de amônia foi medido em 18 ppm — abaixo do limite de bem-estar de 25 ppm.',why:'Parâmetro obrigatório em auditorias BRC e Global G.A.P.'},
+{id:'t023',area:'broiler',sit:['visit'],term:'Pan feeder',ipa:'/pæn ˈfiːdər/',trans:'Comedouro tipo bandeja',ex:'Pan feeders are positioned at shoulder height of the birds throughout the grow-out phase.',pt:'→ Os comedouros tipo bandeja são posicionados na altura dos ombros das aves.',why:'Equipamento padrão em granjas de frango de corte — auditores verificam altura e espaçamento'},
+{id:'t024',area:'broiler',sit:['visit'],term:'Nipple drinker',ipa:'/ˈnɪpəl ˈdrɪŋkər/',trans:'Bebedouro nipple',ex:'Nipple drinkers are checked daily for leaks — water pressure is maintained at 20 kPa.',pt:'→ Os bebedouros nipple são verificados diariamente para vazamentos.',why:'Equipamento universal — o técnico estrangeiro vai pedir para você mostrar e confirmar pressão da água'},
+{id:'t025',area:'broiler',sit:['visit','report'],term:'Tunnel ventilation',ipa:'/ˈtʌnəl ˌvɛntɪˈleɪʃən/',trans:'Ventilação em túnel',ex:'We switched to tunnel ventilation at day 21 — fan capacity is 60,000 m³/h.',pt:'→ Mudamos para ventilação em túnel no dia 21 — capacidade de 60.000 m³/h.',why:'Sistema de ventilação de alta velocidade — auditores verificam estático e capacidade em m³/h'},
+{id:'t026',area:'broiler',sit:['visit'],term:'Evaporative cooling pad',ipa:'/ɪˈvæpərətɪv ˈkuːlɪŋ pæd/',trans:'Painel evaporativo (placa de resfriamento)',ex:'Evaporative cooling pads are activated when outside temperature exceeds 28°C.',pt:'→ Os painéis evaporativos são ativados quando a temperatura externa supera 28°C.',why:'Sistema crítico no verão brasileiro — auditores perguntam sobre manutenção e limpeza dos painéis'},
+{id:'t027',area:'broiler',sit:['report'],term:'Live weight',ipa:'/laɪv weɪt/',trans:'Peso vivo',ex:'Average live weight at day 35 is 2.12 kg — on track for the 2.85 kg target at day 42.',pt:'→ Peso vivo médio no dia 35 é 2,12 kg — no caminho para a meta de 2,85 kg no dia 42.',why:'Não confundir com carcass weight — live weight é o peso do animal ainda vivo'},
+{id:'t028',area:'broiler',sit:['call','fair'],term:'Breed',ipa:'/briːd/',trans:'Linhagem / raça',ex:'We work exclusively with the Ross 308 breed — performance data is available for your review.',pt:'→ Trabalhamos exclusivamente com a linhagem Ross 308 — dados de desempenho disponíveis.',why:'Ao falar com fornecedor de genética, breed é o termo correto para linhagem comercial'},
+{id:'t029a',area:'broiler',sit:['report'],term:'Cumulative mortality',ipa:'/ˌkjuːmjʊlətɪv mɔːˈtælɪti/',trans:'Mortalidade acumulada',ex:'Cumulative mortality at day 35 is 2.3% — split: 1.1% early, 1.2% late mortality.',pt:'→ Mortalidade acumulada no dia 35 é 2,3% — 1,1% mortalidade precoce e 1,2% tardia.',why:'Relatado separadamente por fase no flock report — distingue problemas de pinteiro de problemas de engorda'},
+{id:'t029b',area:'broiler',sit:['report'],term:'Early mortality',ipa:'/ˈɜːrli mɔːˈtælɪti/',trans:'Mortalidade precoce (dias 1–7)',ex:'Early mortality was 0.6% — above our 0.4% target. Chick quality and transport reviewed.',pt:'→ Mortalidade precoce foi 0,6% — acima da meta de 0,4%. Qualidade do pinto e transporte revisados.',why:'Alta mortalidade precoce aponta problema no incubatório ou no transporte — sempre investigada'},
+{id:'t029c',area:'broiler',sit:['report'],term:'Flock performance report',ipa:'/flɒk pəˈfɔːrməns rɪˈpɔːrt/',trans:'Relatório de desempenho do lote',ex:'The flock performance report for cycle 12 is attached — final FCR: 1.61, livability: 97.4%.',pt:'→ O relatório de desempenho do lote 12 está anexo — CA final: 1,61, viabilidade: 97,4%.',why:'Documento enviado ao integrador após o abate — base para pagamento e benchmarking'},
+{id:'t029d',area:'broiler',sit:['report','visit'],term:'Body weight',ipa:'/ˈbɒdi weɪt/',trans:'Peso corporal',ex:'Average body weight at day 21: 780 g — within the Cobb 500 performance goals for week 3.',pt:'→ Peso corporal médio no dia 21: 780 g — dentro das metas Cobb 500 para a 3ª semana.',why:'Pesagem semanal obrigatória — base para ajuste de ração e previsão de data de abate'},
+{id:'t029e',area:'broiler',sit:['visit','report'],term:'Water consumption',ipa:'/ˈwɔːtər kənˈsʌmpʃən/',trans:'Consumo de água',ex:'Water consumption today: 1.8 L per kg of feed — within the normal 1.8:1 water:feed ratio.',pt:'→ Consumo de água hoje: 1,8 L por kg de ração — dentro da relação normal água:ração de 1,8:1.',why:'Queda no consumo de água é o primeiro sinal de problema sanitário — monitorado diariamente'},
+{id:'t029f',area:'broiler',sit:['visit','report'],term:'Feed consumption',ipa:'/fiːd kənˈsʌmpʃən/',trans:'Consumo de ração',ex:'Cumulative feed consumption at day 35: 3,350 g per bird — on track for FCR target.',pt:'→ Consumo acumulado de ração no dia 35: 3.350 g por ave — dentro do esperado para a meta de CA.',why:'Registrado diariamente — junto com o peso, calcula o FCR parcial ao longo do ciclo'},
+{id:'t029g',area:'broiler',sit:['visit'],term:'Chick guard',ipa:'/tʃɪk ɡɑːrd/',trans:'Cercado de pinteiro',ex:'Chick guards are placed around the brooder for the first 3 days to keep chicks close to feed and heat.',pt:'→ Cercados de pinteiro são colocados em volta da campânula nos primeiros 3 dias.',why:'Equipamento de manejo do pinteiro — reduz mortalidade precoce por afastamento da fonte de calor'},
+{id:'t029h',area:'broiler',sit:['visit'],term:'Litter material',ipa:'/ˈlɪtər məˈtɪəriəl/',trans:'Material de cama',ex:'We use wood shavings as litter material — depth of 8 cm at placement.',pt:'→ Usamos maravalha como material de cama — profundidade de 8 cm no alojamento.',why:'Auditores verificam o tipo, profundidade e condição do material de cama no início do ciclo'},
+{id:'t029i',area:'broiler',sit:['visit','report'],term:'Litter moisture',ipa:'/ˈlɪtər ˈmɔɪstʃər/',trans:'Umidade da cama',ex:'Litter moisture measured this morning: 28% — slightly high. Ventilation rate increased.',pt:'→ Umidade da cama medida esta manhã: 28% — levemente alta. Taxa de ventilação aumentada.',why:'Umidade acima de 30% favorece dermatite plantar e coccidiose — parâmetro crítico de bem-estar'},
+{id:'t029j',area:'broiler',sit:['report'],term:'Downgraded birds',ipa:'/ˌdaʊnˈɡreɪdɪd bɜːrdz/',trans:'Aves rebaixadas / de segunda',ex:'Downgraded birds at slaughter: 4.2% — above target. Main cause: skin lesions from litter quality.',pt:'→ Aves rebaixadas no abate: 4,2% — acima da meta. Causa principal: lesões de pele.',why:'Impacto financeiro direto — aves rebaixadas têm valor comercial menor que grau A'},
+{id:'t029k',area:'broiler',sit:['visit'],term:'Ventilation curtain',ipa:'/ˌvɛntɪˈleɪʃən ˈkɜːrtən/',trans:'Cortina de ventilação',ex:'Ventilation curtains are partially open — maintaining minimum ventilation during cold weather.',pt:'→ Cortinas de ventilação parcialmente abertas — mantendo ventilação mínima no frio.',why:'Equipamento de galpão aberto — auditores verificam o manejo manual e o protocolo de abertura'},
+{id:'t029l',area:'broiler',sit:['visit'],term:'Exhaust fan',ipa:'/ɪɡˈzɔːst fæn/',trans:'Exaustor',ex:'We have 12 exhaust fans — total capacity 72,000 m³/h for tunnel ventilation.',pt:'→ Temos 12 exaustores — capacidade total de 72.000 m³/h para ventilação em túnel.',why:'Auditores de ventilação sempre pedem a capacidade total e o número de exaustores'},
+{id:'t029m',area:'broiler',sit:['visit','report'],term:'Stocking density kg/m²',ipa:'/ˈstɒkɪŋ ˈdɛnsɪti ˌkɪloʊˈɡræm pər ˈskwɛr ˈmiːtər/',trans:'Densidade em kg/m²',ex:'Current stocking density: 31.5 kg/m² — within the 33 kg/m² BRC maximum.',pt:'→ Densidade atual: 31,5 kg/m² — abaixo do máximo de 33 kg/m² do BRC.',why:'Expresso em kg/m² nos mercados europeus — diferente de aves/m² usado no Brasil'},
+{id:'t029n',area:'broiler',sit:['report'],term:'Slaughter age',ipa:'/ˈslɔːtər eɪdʒ/',trans:'Idade de abate',ex:'Target slaughter age: 42 days with average live weight of 2.85 kg.',pt:'→ Idade de abate alvo: 42 dias com peso vivo médio de 2,85 kg.',why:'Informa ao comprador e ao frigorífico o perfil do lote — base para agendamento do abate'},
+{id:'t029o',area:'broiler',sit:['report'],term:'Flock placement age',ipa:'/flɒk ˈpleɪsmənt eɪdʒ/',trans:'Idade de alojamento',ex:'Flock placement age: day-old chicks — transport time from hatchery was 3.5 hours.',pt:'→ Idade de alojamento: pintos de um dia — tempo de transporte do incubatório foi 3,5 horas.',why:'Impacta mortalidade precoce — tempo de transporte acima de 6 horas exige atenção especial'},
+{id:'t029p',area:'broiler',sit:['visit'],term:'Drinker line height',ipa:'/ˈdrɪŋkər laɪn haɪt/',trans:'Altura da linha de bebedouro',ex:'Drinker line height is adjusted daily — currently at back height of the birds at day 14.',pt:'→ Altura da linha de bebedouro ajustada diariamente — na altura do dorso das aves.',why:'Altura incorreta aumenta desperdício de água e umidade da cama — técnicos estrangeiros verificam isso'},
+{id:'t029q',area:'broiler',sit:['visit'],term:'Feeder line height',ipa:'/ˈfiːdər laɪn haɪt/',trans:'Altura da linha de comedouro',ex:'Feeder line height is set at shoulder height — checked and adjusted every 3 days.',pt:'→ Altura do comedouro na altura do ombro — verificada e ajustada a cada 3 dias.',why:'Altura incorreta reduz consumo de ração e uniformidade — parâmetro verificado em visita técnica'},
+{id:'t029r',area:'broiler',sit:['report','call'],term:'Performance goals',ipa:'/pərˈfɔːrməns ɡoʊlz/',trans:'Metas de desempenho',ex:'Our results are benchmarked against the Cobb 500 Performance Goals published annually.',pt:'→ Nossos resultados são comparados às Metas de Desempenho Cobb 500 publicadas anualmente.',why:'Documento de referência de todas as integrações — base para qualquer discussão com fornecedor de genética'},
+{id:'t029s',area:'broiler',sit:['report'],term:'Production cost per kg',ipa:'/prəˈdʌkʃən kɒst pər ˌkɪloʊˈɡræm/',trans:'Custo de produção por kg',ex:'Production cost per kg this cycle: R$ 4.82 — feed cost represents 68% of total.',pt:'→ Custo de produção por kg neste ciclo: R$ 4,82 — custo de ração representa 68% do total.',why:'Métrica financeira central — fornecedores de nutrição sempre vinculam FCR ao custo por kg'},
+{id:'t029t',area:'broiler',sit:['visit','report'],term:'Catching crew',ipa:'/ˈkætʃɪŋ kruː/',trans:'Equipe de apanha',ex:'Catching crew of 10 people started at 10 PM — flock depletion completed by 4 AM.',pt:'→ Equipe de apanha de 10 pessoas iniciou às 22h — retirada completa às 4h.',why:'Auditores de bem-estar verificam treinamento e técnica da equipe de apanha'},
+{id:'t029u',area:'broiler',sit:['visit'],term:'Blackout house',ipa:'/ˈblækˌaʊt haʊs/',trans:'Galpão blackout / galpão escuro',ex:'This is a blackout house — lighting is fully controlled, currently on a 23:1 light:dark schedule.',pt:'→ Este é um galpão blackout — iluminação totalmente controlada, programa 23:1 luz:escuro.',why:'Tecnologia padrão dos galpões climatizados — técnicos estrangeiros sempre perguntam sobre o programa de luz'},
+{id:'t029v',area:'broiler',sit:['report'],term:'Condemnation causes',ipa:'/ˌkɒndɛmˈneɪʃən ˈkɔːzɪz/',trans:'Causas de condenação',ex:'Main condemnation causes this batch: cellulitis 0.4%, airsacculitis 0.3%, contamination 0.2%.',pt:'→ Principais causas de condenação: celulite 0,4%, aerossaculite 0,3%, contaminação 0,2%.',why:'Relatado de volta à granja pelo frigorífico — rastreia problemas sanitários e de manejo'},
+{id:'t029w',area:'broiler',sit:['report','call'],term:'Breast meat yield',ipa:'/brɛst miːt jiːld/',trans:'Rendimento de peito',ex:'Breast meat yield this batch: 23.8% of live weight — above our 23.5% contract target.',pt:'→ Rendimento de peito: 23,8% do peso vivo — acima da meta contratual de 23,5%.',why:'KPI financeiro crítico para cortes — compradores internacionais negociam contratos por rendimento de peito'},
+{id:'t029x',area:'broiler',sit:['report'],term:'Whole bird yield',ipa:'/hoʊl bɜːrd jiːld/',trans:'Rendimento de frango inteiro',ex:'Whole bird yield: 74.3% of live weight after evisceration and air chilling.',pt:'→ Rendimento de frango inteiro: 74,3% do peso vivo após evisceração e resfriamento a ar.',why:'Base do cálculo de conversão de peso vivo para produto final — negociado em contratos de integração'},
+{id:'t029y',area:'broiler',sit:['visit'],term:'House temperature',ipa:'/haʊs ˈtɛmprɪtʃər/',trans:'Temperatura do galpão',ex:'House temperature at bird level: 22°C — within the thermal comfort zone for week 4 birds.',pt:'→ Temperatura do galpão na altura das aves: 22°C — dentro da zona de conforto para aves da 4ª semana.',why:'Medida na altura das aves, não do teto — detalhe que técnicos estrangeiros sempre especificam'},
+{id:'t029z',area:'broiler',sit:['visit','report'],term:'Relative humidity',ipa:'/ˌrɛlətɪv hjuːˈmɪdɪti/',trans:'Umidade relativa do ar',ex:'Relative humidity inside the house: 68% — target range for this age is 60–70%.',pt:'→ Umidade relativa dentro do galpão: 68% — faixa alvo para esta idade é 60–70%.',why:'Monitorada junto com temperatura — combinação define o índice de conforto térmico (THI)'},
+{id:'t029aa',area:'broiler',sit:['report'],term:'Weekly weight gain',ipa:'/ˈwiːkli weɪt ɡeɪn/',trans:'Ganho de peso semanal',ex:'Week 4 weight gain: 580 g — from 1,420 g to 2,000 g. On track for day 42 target.',pt:'→ Ganho de peso na semana 4: 580 g — de 1.420 g para 2.000 g.',why:'Relatado semanalmente — permite ajuste precoce de ração e identificação de problemas de manejo'},
+{id:'t029ab',area:'broiler',sit:['visit'],term:'Feeder space',ipa:'/ˈfiːdər speɪs/',trans:'Espaço de comedouro por ave',ex:'Feeder space provided: 3.2 cm per bird — above the BRC minimum of 3.0 cm per bird.',pt:'→ Espaço de comedouro: 3,2 cm por ave — acima do mínimo de 3,0 cm do BRC.',why:'Parâmetro de bem-estar verificado em auditorias — afeta uniformidade de lote'},
+{id:'t029ac',area:'broiler',sit:['visit'],term:'Drinker space',ipa:'/ˈdrɪŋkər speɪs/',trans:'Espaço de bebedouro por ave',ex:'We have 1 nipple drinker per 10 birds — above the minimum recommended for this house size.',pt:'→ Temos 1 bebedouro nipple para cada 10 aves — acima do mínimo recomendado.',why:'Auditores BRC e Global G.A.P. verificam a relação aves por ponto de bebedouro'},
+{id:'t029ad',area:'broiler',sit:['report','call'],term:'Flock summary',ipa:'/flɒk ˈsʌməri/',trans:'Resumo do lote',ex:'Please find the flock summary attached — key metrics: FCR 1.62, livability 97.2%, slaughter age 42 days.',pt:'→ Segue o resumo do lote — métricas principais: CA 1,62, viabilidade 97,2%, abate no dia 42.',why:'Documento de 1 página enviado ao integrador e ao fornecedor de genética ao fim do ciclo'},
+{id:'t029ae',area:'broiler',sit:['visit'],term:'Litter management',ipa:'/ˈlɪtər ˈmænɪdʒmənt/',trans:'Manejo de cama',ex:'Our litter management protocol includes daily removal of wet spots and weekly windrowing.',pt:'→ Nosso protocolo de manejo de cama inclui remoção diária de pontos úmidos e reviramento semanal.',why:'Protocolo específico exigido em auditorias BRC — deve estar documentado e registrado'},
+{id:'t029af',area:'broiler',sit:['visit'],term:'Windrowing',ipa:'/ˈwɪndroʊɪŋ/',trans:'Reviramento da cama (leirão)',ex:'Windrowing is performed on day 14 and day 28 to reduce caking and control ammonia.',pt:'→ O reviramento da cama é feito no dia 14 e no dia 28 para reduzir empedramento e amônia.',why:'Prática de manejo de cama entre lotes ou durante o ciclo — auditores perguntam sobre a frequência'},
+{id:'t029ag',area:'broiler',sit:['visit','report'],term:'Mortality bin',ipa:'/mɔːˈtælɪti bɪn/',trans:'Composteira / recipiente de mortalidade',ex:'Mortality bin is located outside the house — collected daily and recorded in the flock report.',pt:'→ A composteira fica do lado de fora do galpão — coleta diária registrada no relatório.',why:'Auditores verificam o local de descarte e o registro diário de mortalidade'},
+{id:'t029ah',area:'broiler',sit:['call','fair'],term:'Integrator',ipa:'/ˈɪntɪɡreɪtər/',trans:'Integradora',ex:'We are contracted growers for a large integrator — they supply chicks, feed and technical support.',pt:'→ Somos produtores integrados a uma grande integradora — ela fornece pintos, ração e suporte técnico.',why:'Modelo de negócio dominante no Brasil — fornecedores internacionais precisam entender esse contexto'},
+{id:'t029ai',area:'broiler',sit:['call','fair'],term:'Contract grower',ipa:'/ˈkɒntrækt ˈɡroʊər/',trans:'Produtor integrado / avicultor integrado',ex:'As a contract grower, we receive chicks and feed from the integrator and are paid per kg of live weight.',pt:'→ Como produtor integrado, recebemos pintos e ração da integradora e somos pagos por kg de peso vivo.',why:'Termo que define a relação contratual — importante ao explicar o modelo de negócio para estrangeiros'},
+{id:'t029aj',area:'broiler',sit:['report'],term:'Days on feed',ipa:'/deɪz ɒn fiːd/',trans:'Dias de arraçoamento / dias de vida',ex:'Days on feed at slaughter: 42 — average daily gain: 67.9 g from hatch to depletion.',pt:'→ Dias de arraçoamento no abate: 42 — GPD médio: 67,9 g do nascimento ao abate.',why:'Termo usado em documentos americanos para denominar a idade do lote no abate'},
+{id:'t029ak',area:'broiler',sit:['visit'],term:'Scratch area',ipa:'/skrætʃ ˈɛəriə/',trans:'Área de ciscagem',ex:'Scratch area with straw bales is provided as enrichment — required for free-range certification.',pt:'→ Área de ciscagem com fardos de palha como enriquecimento — exigida pela certificação free-range.',why:'Obrigatório em sistemas free-range e certificações de bem-estar de alto padrão'},
+{id:'t029al',area:'broiler',sit:['visit','report'],term:'Outdoor access',ipa:'/ˈaʊtˌdɔːr ˈækses/',trans:'Acesso a área externa',ex:'Outdoor access is provided from day 21 — door width and perimeter comply with EU free-range standards.',pt:'→ Acesso externo disponibilizado a partir do dia 21 — largura das portas em conformidade com o padrão europeu.',why:'Exigência de certificações free-range europeias — auditores medem e documentam o acesso'},
+// ── POEDEIRAS ──────────────────────────────────────────────────
+{id:'t030',area:'layer',sit:['report'],term:'Laying rate',ipa:'/ˈleɪɪŋ reɪt/',trans:'Taxa de postura',ex:'Current laying rate is 94.8%, which is above the Hy-Line W-36 target for week 32.',pt:'→ Taxa de postura atual é 94,8%, acima da meta Hy-Line W-36 para a semana 32.',why:'KPI central de poedeiras — equivale ao FCR para frangos de corte'},
+{id:'t031',area:'layer',sit:['report'],term:'Hen-day egg production',ipa:'/hɛn deɪ ɛɡ prəˈdʌkʃən/',trans:'Produção de ovos por galinha-dia (HDP)',ex:'Hen-day egg production this week is 93.2% — calculated on birds alive today.',pt:'→ Produção de ovos por galinha-dia nesta semana é 93,2%.',why:'Baseado nas aves vivas hoje — diferente de hen-housed, que usa as aves alojadas originalmente'},
+{id:'t032',area:'layer',sit:['report'],term:'Hen-housed egg production',ipa:'/hɛn haʊzd ɛɡ prəˈdʌkʃən/',trans:'Produção de ovos por galinha-alojada',ex:'Hen-housed egg production for this cycle: 312 eggs per hen at week 60.',pt:'→ Produção por galinha-alojada neste ciclo: 312 ovos por galinha na semana 60.',why:'Considera as aves originais do alojamento — inclui perdas por mortalidade no denominador'},
+{id:'t033',area:'layer',sit:['report'],term:'Peak production',ipa:'/piːk prəˈdʌkʃən/',trans:'Pico de produção',ex:'We reached peak production of 96.1% at week 28 — two weeks ahead of schedule.',pt:'→ Atingimos o pico de produção de 96,1% na semana 28 — duas semanas antes do previsto.',why:'Marco fundamental do ciclo de poedeiras — auditores e técnicos sempre perguntam quando foi o pico'},
+{id:'t034',area:'layer',sit:['visit','report'],term:'Rearing phase',ipa:'/ˈrɪərɪŋ feɪz/',trans:'Fase de recria',ex:'Our rearing phase lasts 17 weeks, with hens transferred to the laying house at 18 weeks.',pt:'→ Nossa fase de recria dura 17 semanas, com transferência ao galpão de postura na 18ª semana.',why:'Fase anterior à postura — manejo durante a recria define o desempenho no pico'},
+{id:'t035',area:'layer',sit:['report'],term:'Egg mass',ipa:'/ɛɡ mæs/',trans:'Massa de ovo',ex:'Average egg mass this week is 63.2 g — slightly below the Lohmann Brown target of 64 g.',pt:'→ Massa de ovo média nesta semana é 63,2 g — levemente abaixo da meta Lohmann Brown.',why:'Combina taxa de postura com peso do ovo — usado em relatórios técnicos de nutrição'},
+{id:'t036',area:'layer',sit:['audit','report'],term:'Cage-free system',ipa:'/keɪdʒ friː ˈsɪstəm/',trans:'Sistema cage-free',ex:'We converted to a cage-free system in 2022 — current stocking density is 9 hens/m².',pt:'→ Convertemos para sistema cage-free em 2022 — densidade atual de 9 galinhas/m².',why:'Exigido por redes varejistas europeias e americanas — aparece em auditorias de bem-estar'},
+{id:'t037',area:'layer',sit:['audit'],term:'Forced molt',ipa:'/fɔːrst moʊlt/',trans:'Muda forçada',ex:'Forced molt was performed at week 65 using a low-zinc diet protocol for 5 days.',pt:'→ Muda forçada realizada na semana 65 usando protocolo de dieta com baixo zinco por 5 dias.',why:'Auditores verificam o protocolo utilizado — restrição hídrica é proibida em certificações de bem-estar'},
+{id:'t038',area:'layer',sit:['visit'],term:'Nest box',ipa:'/nɛst bɒks/',trans:'Ninho',ex:'Each nest box accommodates 5 hens — nests are checked every 2 hours to reduce floor eggs.',pt:'→ Cada ninho acomoda 5 galinhas — ninhos verificados a cada 2 horas para reduzir ovos de chão.',why:'Equipamento obrigatório em sistemas cage-free — densidade de ninhos é parâmetro de certificação'},
+{id:'t039',area:'layer',sit:['report'],term:'Floor egg',ipa:'/flɔːr ɛɡ/',trans:'Ovo de chão / ovo de cama',ex:'Floor egg rate this week is 3.2% — above our target of 2%. We are reviewing nest access.',pt:'→ Taxa de ovos de chão nesta semana é 3,2% — acima da meta de 2%.',why:'Alta taxa indica problema de manejo de ninhos — aparece como NC em auditorias'},
+{id:'t040',area:'layer',sit:['report'],term:'Lighting program',ipa:'/ˈlaɪtɪŋ ˈproʊɡræm/',trans:'Programa de iluminação',ex:'Our lighting program for laying hens: 16 hours of light, 8 hours of dark, starting at week 18.',pt:'→ Programa de iluminação: 16h de luz e 8h de escuro a partir da 18ª semana.',why:'Controle do fotoperíodo é regulado em certificações de bem-estar animal'},
+{id:'t040a',area:'layer',sit:['report'],term:'Egg weight',ipa:'/ɛɡ weɪt/',trans:'Peso do ovo',ex:'Average egg weight this week: 63.5 g — within the Jumbo classification of 63–73 g.',pt:'→ Peso médio do ovo nesta semana: 63,5 g — dentro da classificação Jumbo de 63–73 g.',why:'Monitorado semanalmente — influi na classificação comercial e no valor por caixa'},
+{id:'t040b',area:'layer',sit:['report'],term:'Egg grading',ipa:'/ɛɡ ˈɡreɪdɪŋ/',trans:'Classificação de ovos',ex:'Egg grading results: Extra Large 28%, Large 45%, Medium 22%, Small 5%.',pt:'→ Classificação dos ovos: Extra Grande 28%, Grande 45%, Médio 22%, Pequeno 5%.',why:'Base do faturamento — diferentes tamanhos têm preços distintos no mercado'},
+{id:'t040c',area:'layer',sit:['audit'],term:'Conventional cage',ipa:'/kənˈvɛnʃənəl keɪdʒ/',trans:'Gaiola convencional',ex:'Conventional cages are banned in the EU — we operate cage-free to meet export requirements.',pt:'→ Gaiolas convencionais são proibidas na UE — operamos cage-free para atender exportação.',why:'Distinção crítica em auditorias de bem-estar — mercados europeus exigem cage-free ou enriquecido'},
+{id:'t040d',area:'layer',sit:['audit'],term:'Enriched colony cage',ipa:'/ɪnˈrɪtʃt ˈkɒləni keɪdʒ/',trans:'Gaiola enriquecida / colônia enriquecida',ex:'Our enriched colony cages provide 750 cm² per hen, plus nesting, perching and scratch areas.',pt:'→ Nossas gaiolas enriquecidas fornecem 750 cm² por galinha, mais ninho, poleiro e área de ciscagem.',why:'Alternativa às gaiolas convencionais aceita na UE — auditores verificam as dimensões e os enriquecimentos'},
+{id:'t040e',area:'layer',sit:['report'],term:'Laying cycle',ipa:'/ˈleɪɪŋ ˈsaɪkəl/',trans:'Ciclo de postura',ex:'Our laying cycle runs from week 18 to week 72 — total of 54 productive weeks.',pt:'→ Nosso ciclo de postura vai da semana 18 à semana 72 — total de 54 semanas produtivas.',why:'Define a duração do ciclo comercial — base para cálculo de custo por dúzia e por galinha'},
+{id:'t040f',area:'layer',sit:['report'],term:'Flock age',ipa:'/flɒk eɪdʒ/',trans:'Idade do plantel (em semanas)',ex:'Current flock age: week 34 — production is at 94.2%, on the expected Hy-Line curve.',pt:'→ Idade atual do plantel: semana 34 — produção em 94,2%, na curva esperada Hy-Line.',why:'Base de toda comparação com curvas de desempenho do catálogo do fornecedor'},
+{id:'t040g',area:'layer',sit:['visit','report'],term:'Beak trimming',ipa:'/biːk ˈtrɪmɪŋ/',trans:'Debicagem',ex:'Beak trimming was performed at day 7 using infrared method — no mortality recorded.',pt:'→ Debicagem realizada no dia 7 usando método infravermelho — sem mortalidade registrada.',why:'Auditores verificam o método utilizado — debicagem com lâmina quente é restrita em certificações de bem-estar'},
+{id:'t040h',area:'layer',sit:['audit'],term:'Infrared beak treatment',ipa:'/ˈɪnfrəˌrɛd biːk ˈtriːtmənt/',trans:'Tratamento de bico a infravermelho',ex:'Infrared beak treatment at the hatchery eliminates the need for on-farm beak trimming.',pt:'→ O tratamento de bico a infravermelho no incubatório elimina a debicagem na granja.',why:'Método preferido pelas certificações de bem-estar — auditores pedem evidência de que foi realizado'},
+{id:'t040i',area:'layer',sit:['visit'],term:'Perch',ipa:'/pɜːrtʃ/',trans:'Poleiro',ex:'Perches are installed at 30 cm above litter level — 15 cm of perch space per hen.',pt:'→ Poleiros instalados a 30 cm acima da cama — 15 cm de espaço de poleiro por galinha.',why:'Obrigatório em sistemas cage-free e free-range — auditores medem o espaço disponível por ave'},
+{id:'t040j',area:'layer',sit:['visit'],term:'Dust bath area',ipa:'/dʌst bæθ ˈɛəriə/',trans:'Área de banho de poeira',ex:'Dust bath area covers 10% of the total floor — provided with dry litter material at all times.',pt:'→ Área de banho de poeira cobre 10% do piso total — material de cama seco disponível.',why:'Comportamento natural das galinhas — exigido em certificações Certified Humane e free-range'},
+{id:'t040k',area:'layer',sit:['report'],term:'Egg production curve',ipa:'/ɛɡ prəˈdʌkʃən kɜːrv/',trans:'Curva de postura',ex:'Our production curve peaked at 95.8% in week 28 — now at 91.2% in week 40, within normal decline.',pt:'→ Curva de postura com pico de 95,8% na semana 28 — agora em 91,2% na semana 40.',why:'Comparada à curva do catálogo do fornecedor — desvios indicam problema nutricional ou sanitário'},
+{id:'t040l',area:'layer',sit:['report'],term:'Broken egg rate',ipa:'/ˈbroʊkən ɛɡ reɪt/',trans:'Taxa de ovos quebrados',ex:'Broken egg rate this week: 1.8% — above our 1.5% target. Conveyor belt speed adjusted.',pt:'→ Taxa de ovos quebrados nesta semana: 1,8% — acima da meta de 1,5%.',why:'Perda econômica direta — causas incluem velocidade da esteira, umidade da casca e nutrição'},
+{id:'t040m',area:'layer',sit:['report'],term:'Cracked egg rate',ipa:'/krækt ɛɡ reɪt/',trans:'Taxa de ovos trincados',ex:'Cracked egg rate: 2.1% — reviewed calcium supplementation and collection frequency.',pt:'→ Taxa de ovos trincados: 2,1% — revisamos a suplementação de cálcio e a frequência de coleta.',why:'Diferente de broken — ovo trincado tem casca intacta mas comprometida. Ambos são perdas comerciais'},
+{id:'t040n',area:'layer',sit:['report','audit'],term:'Egg collection frequency',ipa:'/ɛɡ kəˈlɛkʃən ˈfriːkwənsi/',trans:'Frequência de coleta de ovos',ex:'Egg collection frequency: 4 times per day — reduces floor eggs and breakage.',pt:'→ Frequência de coleta: 4 vezes por dia — reduz ovos de chão e quebras.',why:'Parâmetro verificado em auditorias de bem-estar e qualidade — menos coletas aumentam ovos sujos'},
+{id:'t040o',area:'layer',sit:['report'],term:'Eggshell quality',ipa:'/ˈɛɡʃɛl ˈkwɒlɪti/',trans:'Qualidade da casca',ex:'Eggshell quality is assessed weekly — Haugh unit and shell breaking strength recorded.',pt:'→ Qualidade da casca avaliada semanalmente — unidade Haugh e resistência à quebra registradas.',why:'Deteriora com a idade do plantel — nutricionistas monitoram para ajustar cálcio e fósforo'},
+{id:'t040p',area:'layer',sit:['report'],term:'Haugh unit',ipa:'/hɔː ˈjuːnɪt/',trans:'Unidade Haugh (qualidade interna do ovo)',ex:'Average Haugh unit this week: 82 — above the Grade A minimum of 72 required for export.',pt:'→ Unidade Haugh média nesta semana: 82 — acima do mínimo grau A de 72 para exportação.',why:'Medida padrão de qualidade interna do ovo — quanto maior, mais firme a clara e mais fresco o ovo'},
+{id:'t040q',area:'layer',sit:['audit'],term:'Salmonella control program',ipa:'/ˌsæləˈnɛlə kənˈtroʊl ˈproʊɡræm/',trans:'Programa de controle de Salmonella',ex:'Our Salmonella control program includes monthly swab testing and quarterly blood sampling.',pt:'→ Nosso programa de controle de Salmonella inclui swabs mensais e coleta de sangue trimestral.',why:'Obrigatório para exportação de ovos para a UE — auditores pedem os resultados dos últimos 12 meses'},
+{id:'t040r',area:'layer',sit:['visit'],term:'Aviary system',ipa:'/ˈeɪviəri ˈsɪstəm/',trans:'Sistema aviário (gaiola de múltiplos andares)',ex:'Our aviary system has 4 tiers — allowing natural behavior while maintaining stocking density.',pt:'→ Nosso sistema aviário tem 4 andares — permitindo comportamento natural com densidade controlada.',why:'Sistema cage-free de alta densidade — padrão em produção europeia e americana de ovos'},
+{id:'t040s',area:'layer',sit:['report'],term:'Depopulation',ipa:'/ˌdiːˌpɒpjʊˈleɪʃən/',trans:'Descarte / retirada do plantel',ex:'Depopulation is scheduled for week 80 — all birds will be removed and the house cleaned.',pt:'→ O descarte está programado para a semana 80 — todas as aves serão retiradas e o galpão limpo.',why:'Término do ciclo de postura — diferente de depletion (frango de corte), mas mesmo conceito'},
+{id:'t040t',area:'layer',sit:['report'],term:'Second cycle',ipa:'/ˈsɛkənd ˈsaɪkəl/',trans:'Segundo ciclo (após muda forçada)',ex:'After forced molt, hens entered a second cycle — peak production reached 88% in week 8 post-molt.',pt:'→ Após a muda forçada, as galinhas entraram no segundo ciclo — pico de 88% na 8ª semana pós-muda.',why:'Estratégia para prolongar a vida produtiva — auditores verificam o protocolo e o bem-estar durante a muda'},
+{id:'t040u',area:'layer',sit:['report','call'],term:'Eggs per hen housed',ipa:'/ɛɡz pər hɛn haʊzd/',trans:'Ovos por galinha-alojada',ex:'Eggs per hen housed at week 72: 318 eggs — above the Lohmann Brown target of 315.',pt:'→ Ovos por galinha-alojada na semana 72: 318 ovos — acima da meta Lohmann Brown de 315.',why:'Métrica final do ciclo — usada para comparar desempenho entre ciclos e entre granjas'},
+{id:'t040v',area:'layer',sit:['report'],term:'Feed per dozen eggs',ipa:'/fiːd pər ˈdʌzən ɛɡz/',trans:'Ração por dúzia de ovos',ex:'Feed per dozen eggs this week: 1.42 kg/dozen — on target for our current feeding program.',pt:'→ Ração por dúzia de ovos nesta semana: 1,42 kg/dúzia — dentro do alvo do programa alimentar.',why:'Equivalente do FCR para poedeiras — mede eficiência alimentar em termos de dúzias produzidas'},
+{id:'t040w',area:'layer',sit:['visit'],term:'Colony size',ipa:'/ˈkɒləni saɪz/',trans:'Tamanho da colônia',ex:'Our colony size is 60 hens per cage — meets EU enriched cage requirements.',pt:'→ Nosso tamanho de colônia é 60 galinhas por gaiola — dentro dos requisitos europeus de gaiola enriquecida.',why:'Parâmetro de certificação para gaiolas enriquecidas — EU define máximos e mínimos por colônia'},
+{id:'t040x',area:'layer',sit:['visit','report'],term:'Free-range system',ipa:'/friː reɪndʒ ˈsɪstəm/',trans:'Sistema free-range',ex:'Our free-range system provides 4 m² of outdoor access per hen — certified by Rainforest Alliance.',pt:'→ Nosso sistema free-range fornece 4 m² de área externa por galinha — certificado.',why:'Sistema de maior valor agregado — exige acesso externo real, não apenas abertura simbólica'},
+{id:'t040y',area:'layer',sit:['report'],term:'Laying house',ipa:'/ˈleɪɪŋ haʊs/',trans:'Galpão de postura',ex:'We manage 3 laying houses — total capacity of 180,000 hens in production.',pt:'→ Gerenciamos 3 galpões de postura — capacidade total de 180.000 galinhas em produção.',why:'Diferenciado do rearing house (galpão de recria) — auditores verificam separação das idades'},
+{id:'t040z',area:'layer',sit:['visit'],term:'Rearing house',ipa:'/ˈrɪərɪŋ haʊs/',trans:'Galpão de recria',ex:'Rearing house capacity: 90,000 pullets — transferred to laying house at 17 weeks.',pt:'→ Capacidade do galpão de recria: 90.000 frangas — transferidas ao galpão de postura com 17 semanas.',why:'Separação física entre recria e postura é obrigatória em certificações sanitárias'},
+{id:'t040aa',area:'layer',sit:['report'],term:'Pullet',ipa:'/ˈpʊlɪt/',trans:'Franga (galinha jovem antes da postura)',ex:'Pullets arrive at 1 day old and are reared until 17 weeks before transfer to the laying house.',pt:'→ Frangas chegam com 1 dia e são criadas por 17 semanas antes da transferência.',why:'Termo técnico para galinha jovem pré-postura — diferente de hen, que já está em produção'},
+{id:'t040ab',area:'layer',sit:['report'],term:'Hen',ipa:'/hɛn/',trans:'Galinha (em postura)',ex:'Current number of hens in production: 178,400 — livability this cycle: 97.1%.',pt:'→ Número atual de galinhas em produção: 178.400 — viabilidade neste ciclo: 97,1%.',why:'Distinção entre pullet e hen é básica — mas usada incorretamente por brasileiros em inglês'},
+{id:'t040ac',area:'layer',sit:['audit','report'],term:'Organic eggs',ipa:'/ˈɔːrɡænɪk ɛɡz/',trans:'Ovos orgânicos',ex:'Our organic eggs are certified by IBD — production follows organic feed and no antibiotic protocols.',pt:'→ Nossos ovos orgânicos são certificados pelo IBD — produção segue ração orgânica e sem antibióticos.',why:'Segmento de maior valor agregado — auditores verificam toda a cadeia de insumos orgânicos'},
+{id:'t040ad',area:'layer',sit:['report','audit'],term:'Traceability code',ipa:'/ˈtreɪsəbɪlɪti koʊd/',trans:'Código de rastreabilidade do ovo',ex:'Each egg is stamped with a traceability code: farm ID, production system and country of origin.',pt:'→ Cada ovo é carimbado com código de rastreabilidade: ID da granja, sistema de criação e país.',why:'Obrigatório na UE — o código identifica o sistema de produção (0=orgânico, 1=free-range, 2=cage-free, 3=convencional)'},
+{id:'t040ae',area:'layer',sit:['visit'],term:'Nesting behavior',ipa:'/ˈnɛstɪŋ bɪˈheɪvjər/',trans:'Comportamento de nidificação',ex:'Hens show strong nesting behavior — 95% of eggs are laid in nest boxes, not on the floor.',pt:'→ Galinhas mostram forte comportamento de nidificação — 95% dos ovos são postos nos ninhos.',why:'Comportamento monitorado em sistemas cage-free — indica se os ninhos estão bem posicionados e atraentes'},
+// ── INCUBATÓRIO ────────────────────────────────────────────────
+{id:'t045',area:'hatchery',sit:['report'],term:'Hatchability',ipa:'/ˌhætʃəˈbɪlɪti/',trans:'Eclodibilidade',ex:'Hatchability of fertile eggs set was 86.3% this week — above our 85% annual target.',pt:'→ Eclodibilidade dos ovos férteis incubados foi 86,3% — acima da meta anual de 85%.',why:'KPI central do incubatório — diferente de fertility, que mede ovos férteis sobre totais'},
+{id:'t046',area:'hatchery',sit:['report'],term:'Fertile eggs set',ipa:'/ˈfɜːrtaɪl ɛɡz sɛt/',trans:'Ovos férteis incubados',ex:'We set 120,000 fertile eggs this batch — from 3 parent stock flocks aged 30–35 weeks.',pt:'→ Incubamos 120.000 ovos férteis neste lote — de 3 plantéis de matrizes entre 30 e 35 semanas.',why:'Base de qualquer relatório de incubatório — diferente do total de ovos coletados'},
+{id:'t047',area:'hatchery',sit:['report'],term:'Candling',ipa:'/ˈkændlɪŋ/',trans:'Ovoscopia',ex:'Candling at day 7 revealed 8.2% infertile eggs — within the acceptable range.',pt:'→ A ovoscopia no dia 7 revelou 8,2% de ovos inférteis — dentro do intervalo aceitável.',why:'Processo de verificação de fertilidade por luz — registrado obrigatoriamente nos relatórios de lote'},
+{id:'t048',area:'hatchery',sit:['report'],term:'Dead-in-shell',ipa:'/dɛd ɪn ʃɛl/',trans:'Embrião morto dentro do ovo',ex:'Dead-in-shell rate was 2.1% — we will review incubator temperature consistency.',pt:'→ Taxa de morto-na-casca foi 2,1% — revisaremos consistência de temperatura do incubador.',why:'Indicador de qualidade de incubação — auditores pedem o histórico por lote e por incubadora'},
+{id:'t049',area:'hatchery',sit:['report'],term:'Chick quality score',ipa:'/tʃɪk ˈkwɒlɪti skɔːr/',trans:'Score de qualidade do pinto',ex:'Average chick quality score (Pasgar) was 91/100 — all batches above the 85-point threshold.',pt:'→ Score médio de qualidade do pinto (Pasgar) foi 91/100 — todos acima do mínimo de 85.',why:'O Pasgar score é padrão da Aviagen — avalia umbigo, patas, atividade e reflexos'},
+{id:'t050',area:'hatchery',sit:['report'],term:'In-ovo vaccination',ipa:'/ɪn ˈoʊvoʊ ˌvæksɪˈneɪʃən/',trans:'Vacinação in ovo',ex:'We apply in-ovo vaccination for Marek\'s disease at day 18 of incubation.',pt:'→ Aplicamos vacinação in ovo para doença de Marek no dia 18 de incubação.',why:'Tecnologia usada pelos maiores incubatórios — auditores de sanidade perguntam sobre o protocolo'},
+{id:'t051',area:'hatchery',sit:['report'],term:'Hatcher transfer',ipa:'/ˈhætʃər ˈtrænsˌfɜːr/',trans:'Transferência para nascedouro',ex:'Hatcher transfer is performed at day 18 — chicks are expected to start hatching at day 20.5.',pt:'→ Transferência para o nascedouro é feita no dia 18 — eclosão esperada para o dia 20,5.',why:'Momento crítico de manejo no incubatório — atraso afeta sincronização de eclosão'},
+{id:'t052',area:'hatchery',sit:['report'],term:'Pull time',ipa:'/pʊl taɪm/',trans:'Horário de retirada dos pintos',ex:'Pull time is set for 6 AM on day 21 — chick quality assessments are performed immediately.',pt:'→ Retirada dos pintos às 6h do dia 21 — avaliações de qualidade são feitas imediatamente.',why:'Timing da retirada afeta o nível de desidratação e a qualidade dos pintos'},
+{id:'t053',area:'hatchery',sit:['report'],term:'Chick sexing',ipa:'/tʃɪk ˈsɛksɪŋ/',trans:'Sexagem de pintos',ex:'Chick sexing is performed by vent sexing — accuracy target is above 99%.',pt:'→ Sexagem feita por sexagem de cloaca — meta de precisão acima de 99%.',why:'Procedimento padrão em incubatórios de poedeiras e matrizes'},
+{id:'t053a',area:'hatchery',sit:['report'],term:'Setter',ipa:'/ˈsɛtər/',trans:'Incubadora (câmara de incubação)',ex:'Our setter capacity is 115,200 eggs per unit — we operate 6 setters at 95% occupancy.',pt:'→ Nossa incubadora tem capacidade de 115.200 ovos por unidade — operamos 6 setters a 95% de ocupação.',why:'Distinção importante: setter é a incubadora; hatcher é o nascedouro — fases e equipamentos diferentes'},
+{id:'t053b',area:'hatchery',sit:['report'],term:'Hatcher',ipa:'/ˈhætʃər/',trans:'Nascedouro (câmara de eclosão)',ex:'Eggs are transferred to the hatcher on day 18 — hatcher temperature is set at 37.2°C.',pt:'→ Ovos transferidos para o nascedouro no dia 18 — temperatura do nascedouro a 37,2°C.',why:'Diferente do setter — o nascedouro tem temperatura e umidade diferentes para otimizar a eclosão'},
+{id:'t053c',area:'hatchery',sit:['report'],term:'Incubation period',ipa:'/ˌɪnkjʊˈbeɪʃən ˈpɪəriəd/',trans:'Período de incubação',ex:'Incubation period for broiler hatching eggs: 21 days — shorter for bantam breeds.',pt:'→ Período de incubação de ovos de frango de corte: 21 dias.',why:'Referência básica para planejamento de lotes e alocação de equipamentos no incubatório'},
+{id:'t053d',area:'hatchery',sit:['report'],term:'Fertility rate',ipa:'/fɜːˈtɪlɪti reɪt/',trans:'Taxa de fertilidade',ex:'Fertility rate this batch: 93.8% — based on candling at day 7.',pt:'→ Taxa de fertilidade neste lote: 93,8% — baseada na ovoscopia do dia 7.',why:'Diferente de hatchability — fertilidade mede ovos férteis; eclodibilidade mede os que eclodiram'},
+{id:'t053e',area:'hatchery',sit:['report'],term:'Infertile eggs',ipa:'/ɪnˈfɜːrtaɪl ɛɡz/',trans:'Ovos inférteis',ex:'Infertile eggs detected at candling: 6.2% — within the acceptable range of 5–8%.',pt:'→ Ovos inférteis detectados na ovoscopia: 6,2% — dentro do intervalo aceitável de 5–8%.',why:'Alto índice de infertilidade indica problema no plantel de matrizes — reportado de volta ao breeder farm'},
+{id:'t053f',area:'hatchery',sit:['report'],term:'Early embryo mortality',ipa:'/ˈɜːrli ˈɛmbriːoʊ mɔːˈtælɪti/',trans:'Mortalidade embrionária precoce',ex:'Early embryo mortality at candling day 7: 1.8% — reviewed setter temperature uniformity.',pt:'→ Mortalidade embrionária precoce na ovoscopia do dia 7: 1,8%.',why:'Indica problema de temperatura no setter ou de manejo dos ovos antes da incubação'},
+{id:'t053g',area:'hatchery',sit:['report'],term:'Late embryo mortality',ipa:'/leɪt ˈɛmbriːoʊ mɔːˈtælɪti/',trans:'Mortalidade embrionária tardia',ex:'Late embryo mortality (dead-in-shell at hatch): 2.3% — reviewed hatcher humidity levels.',pt:'→ Mortalidade embrionária tardia (morto-na-casca): 2,3% — revisamos umidade do nascedouro.',why:'Indica problema de temperatura ou umidade no nascedouro — registrado por lote e por equipamento'},
+{id:'t053h',area:'hatchery',sit:['report'],term:'Pipped eggs',ipa:'/pɪpt ɛɡz/',trans:'Ovos bicados (iniciaram a eclosão)',ex:'At 6 AM on day 21: 94% of eggs pipped — hatch completion expected by 10 AM.',pt:'→ Às 6h do dia 21: 94% dos ovos bicados — eclosão completa esperada para as 10h.',why:'Indicador de sincronização da eclosão — boa sincronização = pintos mais uniformes e menos mortalidade'},
+{id:'t053i',area:'hatchery',sit:['report'],term:'Hatch window',ipa:'/hætʃ ˈwɪndoʊ/',trans:'Janela de eclosão',ex:'Our hatch window is 36 hours — eggs hatching outside this window have lower chick quality.',pt:'→ Nossa janela de eclosão é de 36 horas — ovos que eclodem fora dessa janela têm menor qualidade.',why:'Janela ampla indica problema de fertilidade ou temperatura — afeta qualidade e uniformidade dos pintos'},
+{id:'t053j',area:'hatchery',sit:['report'],term:'Chick dehydration',ipa:'/tʃɪk ˌdiːhaɪˈdreɪʃən/',trans:'Desidratação dos pintos',ex:'Chick dehydration assessed at pull time: score 1.1 — within acceptable range (target < 1.5).',pt:'→ Desidratação dos pintos avaliada na retirada: score 1,1 — dentro do intervalo aceitável.',why:'Causada por pull time tardio ou temperatura alta no nascedouro — afeta sobrevivência pós-alojamento'},
+{id:'t053k',area:'hatchery',sit:['report'],term:'Residue tray count',ipa:'/ˈrɛzɪduː treɪ kaʊnt/',trans:'Contagem de resíduos (casca + mortos)',ex:'Residue tray count: 4.8% shells + dead-in-shell — within the 5% acceptable maximum.',pt:'→ Contagem de resíduos: 4,8% entre cascas e mortos-na-casca — dentro do máximo aceitável de 5%.',why:'Indicador geral da qualidade da eclosão — registrado por nascedouro e por lote de matrizes'},
+{id:'t053l',area:'hatchery',sit:['report'],term:'Spray vaccination',ipa:'/spreɪ ˌvæksɪˈneɪʃən/',trans:'Vacinação por spray',ex:'Spray vaccination for IB and ND applied at pull — 200 mL per 1,000 chicks at 30 cm distance.',pt:'→ Vacinação por spray para BI e Newcastle aplicada na retirada — 200 mL por 1.000 pintos.',why:'Método de vacinação mais usado no nascedouro — auditores pedem o protocolo e o registro de aplicação'},
+{id:'t053m',area:'hatchery',sit:['report'],term:'Vaccine cabinet',ipa:'/vækˈsiːn ˈkæbɪnɪt/',trans:'Câmara de vacina / geladeira de vacinas',ex:'Vaccine cabinet temperature is monitored 24/7 — range maintained at 2–8°C.',pt:'→ Temperatura da câmara de vacinas monitorada 24/7 — mantida entre 2 e 8°C.',why:'Auditores verificam os registros de temperatura da câmara de vacinas — ruptura invalida o lote'},
+{id:'t053n',area:'hatchery',sit:['report'],term:'Chick transport',ipa:'/tʃɪk ˈtrænsˌpɔːrt/',trans:'Transporte de pintos',ex:'Chick transport time to the broiler farm: 2.5 hours — temperature maintained at 25–28°C.',pt:'→ Tempo de transporte dos pintos até a granja: 2,5 horas — temperatura mantida entre 25–28°C.',why:'Tempo e temperatura do transporte afetam diretamente a mortalidade precoce na granja'},
+{id:'t053o',area:'hatchery',sit:['report'],term:'Hatching egg storage',ipa:'/ˈhætʃɪŋ ɛɡ ˈstɔːrɪdʒ/',trans:'Armazenamento de ovos incubáveis',ex:'Hatching eggs are stored at 16°C and 75% RH — maximum storage time: 7 days.',pt:'→ Ovos incubáveis armazenados a 16°C e 75% UR — tempo máximo de armazenamento: 7 dias.',why:'Cada dia de armazenamento acima do ideal reduz a eclodibilidade em ~0.5% — monitorado por lote'},
+{id:'t053p',area:'hatchery',sit:['report'],term:'Setting schedule',ipa:'/ˈsɛtɪŋ ˈʃɛdjuːl/',trans:'Calendário de incubação',ex:'Our setting schedule: every Monday and Thursday — two batches per week for consistent supply.',pt:'→ Calendário de incubação: toda segunda e quinta — dois lotes por semana para fornecimento constante.',why:'Planejamento do incubatório — define o volume semanal de pintos disponíveis para as granjas'},
+{id:'t053q',area:'hatchery',sit:['report','audit'],term:'Biosecurity at hatchery',ipa:'/ˌbaɪoʊsɪˈkjʊərɪti æt ˈhætʃəri/',trans:'Biosseguridade no incubatório',ex:'Hatchery biosecurity includes single-flow traffic, shower-in policy and visitor log.',pt:'→ Biosseguridade do incubatório inclui fluxo unidirecional, protocolo de banho e registro de visitantes.',why:'Auditores verificam a separação dos fluxos limpo/sujo — contaminação cruzada invalida lotes inteiros'},
+{id:'t053r',area:'hatchery',sit:['report'],term:'Meconium staining',ipa:'/mɪˈkoʊniəm ˈsteɪnɪŋ/',trans:'Manchamento por mecônio',ex:'Meconium staining observed in 3.2% of chicks — reviewed hatcher temperature and pull timing.',pt:'→ Manchamento por mecônio em 3,2% dos pintos — temperatura do nascedouro e horário de retirada revisados.',why:'Sinal de estresse durante a eclosão — indica problema de temperatura ou pull time tardio'},
+{id:'t053s',area:'hatchery',sit:['report'],term:'Pasgar score',ipa:'/ˈpæzɡər skɔːr/',trans:'Score Pasgar (qualidade do pinto)',ex:'Average Pasgar score this batch: 92/100 — all individual scores above the 85-point threshold.',pt:'→ Score Pasgar médio neste lote: 92/100 — todos os scores individuais acima de 85.',why:'Sistema de avaliação padronizado pela Aviagen — avalia umbigo, patas, atividade, reflexos e hidratação'},
+{id:'t053t',area:'hatchery',sit:['report'],term:'Hatchery yield',ipa:'/ˈhætʃəri jiːld/',trans:'Rendimento do incubatório',ex:'Hatchery yield: 80.4% chicks per egg set — calculated on total eggs received, including infertile.',pt:'→ Rendimento do incubatório: 80,4% de pintos por ovo incubado — calculado sobre total de ovos recebidos.',why:'Métrica global do incubatório — diferente de hatchability, que usa só ovos férteis como base'},
+// ── MATRIZES ───────────────────────────────────────────────────
+{id:'t060',area:'breeder',sit:['report'],term:'Parent stock',ipa:'/ˈpɛərənt stɒk/',trans:'Matrizes (plantel de reprodução)',ex:'Our parent stock flock is currently at week 35 with a peak production of 85.6%.',pt:'→ Nosso plantel de matrizes está na semana 35 com pico de produção de 85,6%.',why:'Denominação técnica correta — evitar "breeders" como substantivo, preferir parent stock flock'},
+{id:'t061',area:'breeder',sit:['report'],term:'Hatching egg production rate',ipa:'/ˈhætʃɪŋ ɛɡ prəˈdʌkʃən reɪt/',trans:'Taxa de produção de ovos férteis',ex:'Hatching egg production rate this week is 82.4%, above the Ross PS target of 80%.',pt:'→ Taxa de produção de ovos incubáveis nesta semana é 82,4%, acima da meta Ross PS de 80%.',why:'KPI central de matrizes — diferente de laying rate porque considera apenas ovos incubáveis'},
+{id:'t062',area:'breeder',sit:['visit'],term:'Male:female ratio',ipa:'/meɪl ˈfiːmeɪl ˈreɪʃiəʊ/',trans:'Relação macho:fêmea',ex:'We maintain a male:female ratio of 1:10 for natural mating — adjusted to 1:12 after week 40.',pt:'→ Mantemos relação de 1:10 para monta natural — ajustada para 1:12 após a semana 40.',why:'Auditores de fertilidade perguntam sobre a relação e o método de controle de machos'},
+{id:'t063',area:'breeder',sit:['report'],term:'Body weight uniformity',ipa:'/ˈbɒdi weɪt ˌjuːnɪˈfɔːmɪti/',trans:'Uniformidade de peso corporal',ex:'Body weight uniformity at week 22 is 84% — below our 88% target. Feeding adjustments made.',pt:'→ Uniformidade de peso na semana 22 é 84% — abaixo da meta de 88%. Ajustes na alimentação.',why:'Parâmetro crítico de matrizes — uniformidade ruim antecipa picos de produção mais baixos'},
+{id:'t064',area:'breeder',sit:['visit'],term:'Skip-a-day feeding',ipa:'/skɪp ə deɪ ˈfiːdɪŋ/',trans:'Alimentação em dias alternados',ex:'We use skip-a-day feeding for roosters from week 5 to control body weight.',pt:'→ Usamos alimentação em dias alternados para os galos da semana 5 para controle de peso.',why:'Prática de manejo de machos — auditores verificam o protocolo de controle de peso'},
+{id:'t065',area:'breeder',sit:['report'],term:'Semen quality',ipa:'/ˈsiːmən ˈkwɒlɪti/',trans:'Qualidade seminal',ex:'Semen quality assessment showed 85% motility and 90% concentration — within target.',pt:'→ Avaliação de qualidade seminal: 85% de motilidade e 90% de concentração.',why:'Registrado em granjas com inseminação artificial — base para relatórios de fertilidade'},
+{id:'t065a',area:'breeder',sit:['report'],term:'Hatching egg',ipa:'/ˈhætʃɪŋ ɛɡ/',trans:'Ovo incubável / ovo fértil',ex:'Total hatching eggs collected this week: 84,200 — rejection rate 6.8% due to size and shape.',pt:'→ Total de ovos incubáveis coletados nesta semana: 84.200 — taxa de rejeição 6,8%.',why:'Denominação técnica para ovos destinados à incubação — distingue de table eggs (ovos de mesa)'},
+{id:'t065b',area:'breeder',sit:['report'],term:'Hatching egg rejection rate',ipa:'/ˈhætʃɪŋ ɛɡ rɪˈdʒɛkʃən reɪt/',trans:'Taxa de rejeição de ovos incubáveis',ex:'Hatching egg rejection rate this week: 7.2% — main causes: double yolk, undersize and cracked.',pt:'→ Taxa de rejeição de ovos incubáveis: 7,2% — causas: gema dupla, tamanho pequeno e trincados.',why:'Ovos rejeitados não entram no incubatório — impacto direto na receita do breeder farm'},
+{id:'t065c',area:'breeder',sit:['visit'],term:'Nest box occupancy',ipa:'/nɛst bɒks ˈɒkjʊpənsi/',trans:'Ocupação dos ninhos',ex:'Nest box occupancy rate at peak lay time: 78% — adequate for our 1 nest per 5 hens ratio.',pt:'→ Taxa de ocupação dos ninhos no horário de pico: 78% — adequada para a relação 1 ninho por 5 galinhas.',why:'Alta ocupação reduz floor eggs — auditores verificam a relação ninhos por galinha'},
+{id:'t065d',area:'breeder',sit:['report'],term:'Eggs per hen per week',ipa:'/ɛɡz pər hɛn pər wiːk/',trans:'Ovos por galinha por semana',ex:'Eggs per hen per week at peak: 5.9 — above the Ross PS target of 5.7 for week 30.',pt:'→ Ovos por galinha por semana no pico: 5,9 — acima da meta Ross PS de 5,7 para a semana 30.',why:'KPI semanal de matrizes — base para projeção de pintos disponíveis nas próximas semanas'},
+{id:'t065e',area:'breeder',sit:['visit','report'],term:'Rooster management',ipa:'/ˈruːstər ˈmænɪdʒmənt/',trans:'Manejo de galos',ex:'Rooster management includes weekly weight monitoring and removal of underperforming males.',pt:'→ Manejo de galos inclui pesagem semanal e remoção de machos com baixo desempenho.',why:'Galos com peso inadequado têm menor fertilidade — manejo específico de machos é verificado em auditorias'},
+{id:'t065f',area:'breeder',sit:['visit'],term:'Artificial insemination',ipa:'/ˌɑːrtɪˈfɪʃəl ˌɪnsɛmɪˈneɪʃən/',trans:'Inseminação artificial',ex:'Artificial insemination is performed twice a week — semen collected fresh and used within 30 minutes.',pt:'→ Inseminação artificial realizada duas vezes por semana — sêmen coletado fresco e usado em 30 minutos.',why:'Prática crescente em matrizes pesadas — auditores de fertilidade verificam o protocolo completo'},
+{id:'t065g',area:'breeder',sit:['report'],term:'Flock fertility',ipa:'/flɒk fɜːˈtɪlɪti/',trans:'Fertilidade do plantel',ex:'Flock fertility this week: 93.1% — tested by cracking a sample of 200 eggs.',pt:'→ Fertilidade do plantel nesta semana: 93,1% — testada quebrando uma amostra de 200 ovos.',why:'Medida semanalmente para monitorar o desempenho reprodutivo — queda indica problema com os galos'},
+{id:'t065h',area:'breeder',sit:['report'],term:'Breeder flock age',ipa:'/ˈbriːdər flɒk eɪdʒ/',trans:'Idade do plantel de matrizes',ex:'Current breeder flock age: week 38 — production is declining from the 85.4% peak at week 30.',pt:'→ Idade atual do plantel de matrizes: semana 38 — produção caindo do pico de 85,4% na semana 30.',why:'Base para comparação com a curva padrão do fornecedor de genética'},
+{id:'t065i',area:'breeder',sit:['visit'],term:'Lighting stimulation',ipa:'/ˈlaɪtɪŋ ˌstɪmjʊˈleɪʃən/',trans:'Estimulação luminosa',ex:'Lighting stimulation is given at week 23 — photoperiod increased from 10 to 14 hours over 4 weeks.',pt:'→ Estimulação luminosa na semana 23 — fotoperíodo aumentado de 10 para 14 horas em 4 semanas.',why:'Gatilho do início da postura — protocolo específico de matrizes, diferente de poedeiras comerciais'},
+{id:'t065j',area:'breeder',sit:['visit','report'],term:'Breeder house',ipa:'/ˈbriːdər haʊs/',trans:'Galpão de matrizes',ex:'Our breeder house has separate male and female feeding systems — controlled by body weight.',pt:'→ Nosso galpão de matrizes tem sistemas separados de alimentação de machos e fêmeas.',why:'Separação de alimentação por sexo é característica central do galpão de matrizes'},
+{id:'t065k',area:'breeder',sit:['report'],term:'Egg set rate',ipa:'/ɛɡ sɛt reɪt/',trans:'Taxa de ovos incubados sobre produzidos',ex:'Egg set rate: 89.3% of eggs produced were suitable for incubation and set in setters.',pt:'→ Taxa de ovos incubados: 89,3% dos ovos produzidos foram adequados para incubação.',why:'Diferença entre ovos produzidos e incubados — rejeições incluem ovos sujos, trincados e fora do padrão'},
+{id:'t065l',area:'breeder',sit:['visit'],term:'Natural mating',ipa:'/ˈnætʃərəl ˈmeɪtɪŋ/',trans:'Monta natural',ex:'We use natural mating exclusively — rooster:hen ratio maintained at 1:10 throughout production.',pt:'→ Usamos exclusivamente monta natural — relação galo:galinha de 1:10 ao longo de toda a produção.',why:'Método predominante em matrizes de frango de corte — diferente de poedeiras pesadas que usam IA'},
+{id:'t065m',area:'breeder',sit:['report'],term:'Fertile egg production',ipa:'/ˈfɜːrtaɪl ɛɡ prəˈdʌkʃən/',trans:'Produção de ovos férteis',ex:'Total fertile egg production this cycle: 148 eggs per hen — above the Ross 308 PS target of 145.',pt:'→ Produção total de ovos férteis neste ciclo: 148 ovos por galinha — acima da meta Ross 308 PS.',why:'Métrica final do ciclo de matrizes — equivalente a eggs per hen housed para poedeiras'},
+{id:'t065n',area:'breeder',sit:['visit'],term:'Floor feeding system',ipa:'/flɔːr ˈfiːdɪŋ ˈsɪstəm/',trans:'Sistema de alimentação no chão (calha ou bandeja)',ex:'Floor feeding system for females uses a chain feeder — males fed through separate raised grids.',pt:'→ Sistema de alimentação no chão para fêmeas usa calha contínua — machos alimentados por grades elevadas.',why:'Separação de alimentação por sexo é crítica para controle de peso e uniformidade em matrizes'},
+// ── NUTRIÇÃO ───────────────────────────────────────────────────
+{id:'t070',area:'nutrition',sit:['call','email'],term:'Crude protein',ipa:'/kruːd ˈproʊtiːn/',trans:'Proteína bruta',ex:'The starter diet contains 22% crude protein — formulated for the first 7 days of life.',pt:'→ A ração inicial contém 22% de proteína bruta — formulada para os primeiros 7 dias.',why:'PB em inglês é CP — aparece em todas as fórmulas de ração e laudos laboratoriais'},
+{id:'t071',area:'nutrition',sit:['call'],term:'Metabolizable energy',ipa:'/məˈtæbəlaɪzəbl ˈɛnərji/',trans:'Energia metabolizável',ex:'Metabolizable energy content of this batch: 3,100 kcal/kg — confirmed by lab analysis.',pt:'→ Energia metabolizável deste lote: 3.100 kcal/kg — confirmada por análise laboratorial.',why:'EM em inglês é ME — parâmetro central em qualquer formulação de ração'},
+{id:'t072',area:'nutrition',sit:['call','email'],term:'Pre-starter feed',ipa:'/priː ˈstɑːrtər fiːd/',trans:'Ração pré-inicial',ex:'Pre-starter feed is used exclusively for the first 7 days — with 22% CP and 3,050 kcal ME.',pt:'→ Ração pré-inicial usada exclusivamente nos primeiros 7 dias.',why:'Fase de nutrição específica de frango de corte — fornecedor pergunta sobre transição de fases'},
+{id:'t073',area:'nutrition',sit:['call','email'],term:'Withdrawal feed',ipa:'/wɪðˈdrɔːəl fiːd/',trans:'Ração de retirada / ração pré-abate',ex:'We switch to withdrawal feed 5 days before slaughter to comply with antibiotic residue regulations.',pt:'→ Mudamos para a ração de retirada 5 dias antes do abate para conformidade com regulamentos.',why:'Período sem medicamentos antes do abate — obrigatório para mercados exportadores'},
+{id:'t074',area:'nutrition',sit:['call'],term:'Amino acid profile',ipa:'/əˈmiːnoʊ æsɪd ˈproʊfaɪl/',trans:'Perfil de aminoácidos',ex:'Our amino acid profile meets the digestible lysine:energy ratio recommended by Cobb.',pt:'→ Nosso perfil de aminoácidos atende a relação lisina digestível:energia recomendada pela Cobb.',why:'Discutido em reuniões com nutricionistas de fornecedores internacionais'},
+{id:'t075',area:'nutrition',sit:['label'],term:'Withdrawal period',ipa:'/wɪðˈdrɔːəl ˈpɪəriəd/',trans:'Período de carência',ex:'Withdrawal period for this antibiotic: 5 days. Do not slaughter before day 5 after last treatment.',pt:'→ Período de carência: 5 dias. Não abater antes de 5 dias após o último tratamento.',why:'Informação obrigatória em qualquer bula — ignorar isso é NC grave em auditorias de exportação'},
+{id:'t076',area:'nutrition',sit:['label'],term:'Dosage',ipa:'/ˈdoʊsɪdʒ/',trans:'Dosagem',ex:'Dosage: 1 mL per 10 kg body weight, administered subcutaneously. Do not exceed 3 treatments.',pt:'→ Dosagem: 1 mL por 10 kg de peso vivo, via subcutânea. Não exceder 3 tratamentos.',why:'Termo central em qualquer bula de medicamento veterinário — aparece antes de "route of administration"'},
+{id:'t077',area:'nutrition',sit:['label'],term:'Storage conditions',ipa:'/ˈstɔːrɪdʒ kənˈdɪʃənz/',trans:'Condições de armazenamento',ex:'Storage conditions: 2–8°C, away from light. Do not freeze. Use within 4 hours of opening.',pt:'→ Condições de armazenamento: 2–8°C, ao abrigo da luz. Não congelar.',why:'Linha obrigatória em toda bula de vacina — responsabilidade do técnico verificar e registrar'},
+{id:'t078',area:'nutrition',sit:['label'],term:'Route of administration',ipa:'/ruːt əv ədˌmɪnɪˈstreɪʃən/',trans:'Via de administração',ex:'Route of administration: drinking water. Ensure clean, medication-free water before vaccination.',pt:'→ Via de administração: água de bebida. Garantir água limpa antes da vacinação.',why:'Bulas em inglês sempre listam route antes de dosage — aparece exatamente assim'},
+// ── SAÚDE E BIOSSEGURIDADE ────────────────────────────────────
+{id:'t080',area:'health',sit:['report','audit'],term:'Biosecurity breach',ipa:'/ˌbaɪoʊsɪˈkjʊərɪti briːtʃ/',trans:'Falha de biosseguridade',ex:'A biosecurity breach was identified: vehicle entered the farm without disinfection. CAPA opened.',pt:'→ Falha de biosseguridade identificada: veículo entrou na granja sem desinfecção. CAPA aberta.',why:'Termo que abre uma não conformidade imediata — auditores documentam como finding'},
+{id:'t081',area:'health',sit:['audit'],term:'Downtime',ipa:'/ˈdaʊntaɪm/',trans:'Vazio sanitário',ex:'Our downtime between flocks is 14 days — this includes full litter removal, cleaning and disinfection.',pt:'→ Nosso vazio sanitário entre lotes é 14 dias — inclui remoção de cama, limpeza e desinfecção.',why:'Parâmetro de biosseguridade perguntado em toda auditoria sanitária'},
+{id:'t082',area:'health',sit:['audit'],term:'All-in all-out',ipa:'/ɔːl ɪn ɔːl aʊt/',trans:'Sistema tudo-dentro tudo-fora',ex:'We operate on a strict all-in all-out basis — no mixing of different age groups on site.',pt:'→ Operamos no sistema tudo-dentro tudo-fora — sem mistura de diferentes idades no sítio.',why:'Sistema de manejo sanitário obrigatório para certificações de exportação'},
+{id:'t083',area:'health',sit:['audit'],term:'Vaccination program',ipa:'/ˌvæksɪˈneɪʃən ˈproʊɡræm/',trans:'Programa de vacinação',ex:'Our vaccination program follows the Cobb-recommended schedule for Newcastle and IBD.',pt:'→ Nosso programa de vacinação segue o calendário recomendado pela Cobb para Newcastle e IBD.',why:'Auditores solicitam o programa completo como documento — deve estar em inglês para exportação'},
+{id:'t084',area:'health',sit:['report'],term:'ELISA titer',ipa:'/ɪˈlaɪzə ˈtaɪtər/',trans:'Título de ELISA',ex:'ELISA titers for Newcastle at week 4: geometric mean of 4,800 — protection confirmed.',pt:'→ Títulos de ELISA para Newcastle na semana 4: média geométrica de 4.800.',why:'Resultado de exame sorológico — reportado ao fornecedor de vacinas e a auditores'},
+{id:'t085',area:'health',sit:['email','audit'],term:'Sanitary certificate',ipa:'/ˈsænɪtri sərˈtɪfɪkət/',trans:'Certificado sanitário',ex:'Please find attached the sanitary certificate for flock 2024-003, valid for 30 days.',pt:'→ Segue em anexo o certificado sanitário do lote 2024-003, válido por 30 dias.',why:'Documento obrigatório para exportação — emitido pelo SIF e exigido pelo país importador'},
+{id:'t086',area:'health',sit:['audit'],term:'Disinfectant',ipa:'/dɪsɪnˈfɛktənt/',trans:'Desinfetante',ex:'Disinfectant used: Virkon S at 1% concentration. Contact time: 20 minutes. Documented.',pt:'→ Desinfetante utilizado: Virkon S a 1% de concentração. Tempo de contato: 20 min.',why:'Auditores verificam o produto, concentração e tempo de contato — tudo deve estar documentado'},
+// ── BEM-ESTAR ANIMAL ──────────────────────────────────────────
+{id:'t090',area:'welfare',sit:['audit'],term:'Five Freedoms',ipa:'/faɪv ˈfriːdəmz/',trans:'Cinco Liberdades',ex:'Our animal welfare policy is based on the Five Freedoms defined by the Farm Animal Welfare Council.',pt:'→ Nossa política de bem-estar animal é baseada nas Cinco Liberdades do FAWC.',why:'Base de qualquer auditoria de bem-estar — os auditores perguntam se você as conhece'},
+{id:'t091',area:'welfare',sit:['audit'],term:'Foot pad dermatitis',ipa:'/fʊt pæd ˌdɜːməˈtaɪtɪs/',trans:'Dermatite de coxim plantar',ex:'Foot pad dermatitis score at slaughter was 1.2 — below the 2.0 threshold for BRC compliance.',pt:'→ Score de dermatite plantar no abate foi 1,2 — abaixo do limite de 2,0 para o BRC.',why:'FPD é avaliada no frigorífico e relatada de volta à granja — auditores verificam o histórico'},
+{id:'t092',area:'welfare',sit:['audit'],term:'Gait score',ipa:'/ɡeɪt skɔːr/',trans:'Score de locomoção',ex:'Gait score assessment at day 35: 92% of birds scored 0–1. No lameness issues observed.',pt:'→ Avaliação de locomoção no dia 35: 92% das aves com score 0–1.',why:'Indicador de bem-estar animal avaliado em campo — exigido por auditorias de varejistas europeus'},
+{id:'t093',area:'welfare',sit:['audit'],term:'Enrichment',ipa:'/ɪnˈrɪtʃmənt/',trans:'Enriquecimento ambiental',ex:'Environmental enrichment provided: perches, pecking objects and dust bathing areas.',pt:'→ Enriquecimento ambiental fornecido: poleiros, objetos para bicar e áreas para banho de poeira.',why:'Obrigatório em sistemas cage-free e free-range — auditores verificam e fotografam'},
+{id:'t094',area:'welfare',sit:['audit'],term:'Controlled atmosphere stunning',ipa:'/kənˈtroʊld ˈætməsfɪər ˈstʌnɪŋ/',trans:'Atordoamento por atmosfera controlada',ex:'We use controlled atmosphere stunning (CAS) with CO2 at the processing plant.',pt:'→ Usamos atordoamento por CO2 na planta de processamento.',why:'CAS é exigido por compradores europeus e algumas certificações de bem-estar'},
+{id:'t095',area:'welfare',sit:['audit'],term:'Lairage',ipa:'/ˈlɛərɪdʒ/',trans:'Curral / área de espera pré-abate',ex:'Birds are held in lairage for a maximum of 3 hours before entering the slaughter line.',pt:'→ Aves ficam na área de espera por no máximo 3 horas antes da linha de abate.',why:'Tempo no lairage é monitorado por auditores de bem-estar — impacta mortalidade na chegada'},
+// ── ABATE E PROCESSAMENTO ─────────────────────────────────────
+{id:'t100',area:'slaughter',sit:['audit','report'],term:'Catching',ipa:'/ˈkætʃɪŋ/',trans:'Apanha das aves',ex:'Catching is performed by a trained team of 8 people — average catching speed: 2,000 birds/hour.',pt:'→ Apanha realizada por equipe treinada de 8 pessoas — média de 2.000 aves/hora.',why:'Primeiro elo da cadeia de abate — auditores verificam técnica e bem-estar durante a apanha'},
+{id:'t101',area:'slaughter',sit:['audit'],term:'Stunning',ipa:'/ˈstʌnɪŋ/',trans:'Atordoamento',ex:'Electrical water bath stunning: 105 mA per bird at 400 Hz — confirmed by SIF supervisor.',pt:'→ Atordoamento em banho de água: 105 mA por ave a 400 Hz — confirmado pelo supervisor SIF.',why:'Parâmetro verificado em auditorias de bem-estar e certificações Halal'},
+{id:'t102',area:'slaughter',sit:['audit'],term:'Exsanguination',ipa:'/ɪɡˌzæŋɡwɪˈneɪʃən/',trans:'Sangria',ex:'Exsanguination is performed manually by trained operators — minimum bleed time: 90 seconds.',pt:'→ Sangria realizada manualmente por operadores treinados — tempo mínimo: 90 segundos.',why:'Termo técnico correto para sangria — mais preciso que "bleeding" em documentos oficiais'},
+{id:'t103',area:'slaughter',sit:['audit'],term:'Scalding',ipa:'/ˈskɔːldɪŋ/',trans:'Escaldagem',ex:'Scalding temperature: 52°C for 3 minutes — soft scald protocol for fresh market product.',pt:'→ Temperatura de escaldagem: 52°C por 3 min — protocolo de escaldagem suave para mercado in natura.',why:'Dois protocolos existem: soft scald e hard scald — temperatura e tempo afetam apresentação da carcaça'},
+{id:'t104',area:'slaughter',sit:['audit'],term:'Evisceration',ipa:'/ɪˌvɪsəˈreɪʃən/',trans:'Evisceração',ex:'Automatic evisceration line processes 13,500 birds per hour — vent cutter step is critical.',pt:'→ Linha automática de evisceração processa 13.500 aves/hora.',why:'Etapa crítica da linha de abate — auditores verificam contaminação e velocidade da linha'},
+{id:'t105',area:'slaughter',sit:['audit'],term:'Air chilling',ipa:'/ɛr ˈtʃɪlɪŋ/',trans:'Resfriamento a ar',ex:'We use air chilling — carcass temperature reaches 4°C within 90 minutes. No added water.',pt:'→ Usamos resfriamento a ar — a carcaça atinge 4°C em 90 minutos. Sem adição de água.',why:'Exigido pelo mercado europeu — ao contrário do resfriamento por imersão em água (chiller)'},
+{id:'t106',area:'slaughter',sit:['report','audit'],term:'Condemnation rate',ipa:'/ˌkɒndɛmˈneɪʃən reɪt/',trans:'Taxa de condenação',ex:'Condemnation rate this week was 1.2% — cellulitis was the leading cause at 0.4%.',pt:'→ Taxa de condenação nesta semana foi 1,2% — celulite foi a principal causa com 0,4%.',why:'KPI crítico do frigorífico — auditores e compradores internacionais sempre pedem esse dado'},
+{id:'t107',area:'slaughter',sit:['report'],term:'Carcass yield',ipa:'/ˈkɑːrkəs jiːld/',trans:'Rendimento de carcaça',ex:'Average carcass yield this batch was 74.2% — above our target of 73.5%.',pt:'→ Rendimento médio de carcaça neste lote foi 74,2% — acima da meta de 73,5%.',why:'Diferença entre live weight e carcass weight expressa em % — dado que negocia contratos'},
+{id:'t108',area:'slaughter',sit:['report'],term:'PSE meat',ipa:'/piː ɛs iː miːt/',trans:'Carne PSE (pálida, mole, exsudativa)',ex:'PSE incidence this week: 3.1% — above target. Pre-slaughter stress management reviewed.',pt:'→ Incidência de PSE: 3,1% — acima da meta. Manejo pré-abate revisado.',why:'Defeito de qualidade associado a estresse pré-abate — perda econômica e reclamação de importador'},
+{id:'t109',area:'slaughter',sit:['report'],term:'Carcass grading',ipa:'/ˈkɑːrkəs ˈɡreɪdɪŋ/',trans:'Classificação de carcaça',ex:'Carcass grading: Grade A — 89.4%, Grade B — 8.2%, Grade C — 2.4%.',pt:'→ Classificação de carcaça: Grau A — 89,4%, Grau B — 8,2%, Grau C — 2,4%.',why:'Sistema americano de classificação — USDA Poultry Grading Manual define os critérios'},
+// ── EXPORTAÇÃO E COMÉRCIO ─────────────────────────────────────
+{id:'t115',area:'export',sit:['email','audit'],term:'Health certificate',ipa:'/hɛlθ sərˈtɪfɪkət/',trans:'Certificado sanitário internacional',ex:'The health certificate for this shipment must be issued by SIF and apostilled by MAPA.',pt:'→ O certificado sanitário deve ser emitido pelo SIF e apostilado pelo MAPA.',why:'Documento habilitante para exportação — sem ele, nenhum mercado importador aceita o carregamento'},
+{id:'t116',area:'export',sit:['email'],term:'SPS measures',ipa:'/ɛs piː ɛs ˈmɛʒərz/',trans:'Medidas sanitárias e fitossanitárias',ex:'The importing country\'s SPS measures require testing for Salmonella before shipment.',pt:'→ As medidas SPS do país importador exigem teste de Salmonella antes do embarque.',why:'Acordo da OMC que regula o comércio internacional de alimentos — base de toda negociação de acesso'},
+{id:'t117',area:'export',sit:['email','fair'],term:'Market access',ipa:'/ˈmɑːrkɪt ˈækses/',trans:'Acesso ao mercado',ex:'Brazil has market access for poultry products in over 150 countries.',pt:'→ O Brasil tem acesso ao mercado para produtos avícolas em mais de 150 países.',why:'Termo que define quais países podem receber seus produtos — central em negociações de feiras'},
+{id:'t118',area:'export',sit:['email'],term:'Cold chain',ipa:'/koʊld tʃeɪn/',trans:'Cadeia do frio',ex:'Cold chain documentation must show unbroken temperature records from plant to port.',pt:'→ Documentação da cadeia do frio deve mostrar registros contínuos de temperatura até o porto.',why:'Ruptura da cadeia do frio invalida o embarque — exigência de qualquer importador certificado'},
+{id:'t119',area:'export',sit:['audit','email'],term:'Halal certification',ipa:'/həˈlæl ˌsɜːrtɪfɪˈkeɪʃən/',trans:'Certificação Halal',ex:'Our plant holds Halal certification valid for UAE, Saudi Arabia and Malaysia markets.',pt:'→ Nossa planta possui certificação Halal válida para EAU, Arábia Saudita e Malásia.',why:'Exigência do Oriente Médio — auditores Halal verificam stunning, sangria e abate manual'},
+{id:'t120',area:'export',sit:['audit','email'],term:'Non-tariff barrier',ipa:'/nɒn ˈtærɪf ˈbæriər/',trans:'Barreira não tarifária',ex:'The new SPS measure is a non-tariff barrier — it requires additional lab testing per shipment.',pt:'→ A nova medida sanitária é uma barreira não tarifária — exige testes laboratoriais adicionais.',why:'Termo de negociação comercial — aparece em comunicados do MAPA e em reuniões de feira'},
+// ── AUDITORIAS E CERTIFICAÇÕES ────────────────────────────────
+{id:'t125',area:'audit',sit:['audit'],term:'Non-conformance',ipa:'/nɒn kənˈfɔːrməns/',trans:'Não conformidade',ex:'Three non-conformances were identified: two minor and one major. CAPAs submitted within 24 hours.',pt:'→ Três não conformidades identificadas: duas menores e uma maior.',why:'NC é o termo universal em todas as normas de certificação — minor, major e critical são subclasses'},
+{id:'t126',area:'audit',sit:['audit'],term:'Corrective action',ipa:'/kəˈrɛktɪv ˈækʃən/',trans:'Ação corretiva',ex:'Corrective action: retrained all operators on biosecurity protocols. Evidence attached.',pt:'→ Ação corretiva: treinamento de todos os operadores em protocolos de biosseguridade.',why:'Diferente de preventive action — corretiva resolve o problema, preventiva evita recorrência'},
+{id:'t127',area:'audit',sit:['audit'],term:'CAPA',ipa:'/ˈkæpə/',trans:'Ação corretiva e preventiva',ex:'A CAPA was raised for the temperature deviation found in cold storage — due date: 15 days.',pt:'→ Uma CAPA foi aberta para o desvio de temperatura no armazenamento frio — prazo: 15 dias.',why:'CAPA = Corrective and Preventive Action — termo universal em ISO, BRC, Global G.A.P.'},
+{id:'t128',area:'audit',sit:['audit'],term:'Audit trail',ipa:'/ˈɔːdɪt treɪl/',trans:'Rastro de auditoria / rastreabilidade',ex:'The audit trail for this batch shows every step from farm to dispatch — all records available.',pt:'→ O rastro de auditoria deste lote mostra cada etapa desde a granja até o embarque.',why:'Conceito de rastreabilidade — auditores pedem para ver o audit trail do lote em revisão'},
+{id:'t129',area:'audit',sit:['audit'],term:'Finding',ipa:'/ˈfaɪndɪŋ/',trans:'Achado de auditoria',ex:'The auditor raised a finding on the gap in temperature monitoring records for cold storage.',pt:'→ O auditor registrou um achado sobre a lacuna nos registros de temperatura do armazenamento.',why:'Finding pode ser positivo ou negativo — na prática, sempre associado a uma NC ou observação'},
+{id:'t130',area:'audit',sit:['audit'],term:'Root cause analysis',ipa:'/ruːt kɔːz əˈnælɪsɪs/',trans:'Análise de causa raiz',ex:'Root cause analysis identified inadequate training as the cause of the recurring NC.',pt:'→ Análise de causa raiz identificou treinamento inadequado como causa da NC recorrente.',why:'Exigido pelo BRC para NCs maiores — sem root cause, a CAPA é rejeitada'},
+{id:'t131',area:'audit',sit:['audit'],term:'HACCP',ipa:'/ˈhæsɪp/',trans:'Análise de perigos e pontos críticos de controle',ex:'Our HACCP plan identifies 4 CCPs: stunning, scalding, chilling and metal detection.',pt:'→ Nosso plano HACCP identifica 4 PCCs.',why:'Pronuncia-se "HASSIP" — sistema obrigatório para qualquer empresa que exporta alimentos'},
+{id:'t132',area:'audit',sit:['audit'],term:'Critical control point',ipa:'/ˈkrɪtɪkəl kənˈtroʊl pɔɪnt/',trans:'Ponto crítico de controle',ex:'The metal detection step is a critical control point — all rejects are documented and investigated.',pt:'→ A detecção de metais é um ponto crítico de controle.',why:'CCP = ponto onde controle é essencial para prevenir perigo à segurança alimentar'},
+{id:'t133',area:'audit',sit:['audit','email'],term:'Traceability',ipa:'/ˌtreɪsəˈbɪlɪti/',trans:'Rastreabilidade',ex:'Full traceability from chick placement to final product is maintained and available on request.',pt:'→ Rastreabilidade completa do alojamento ao produto final — disponível mediante solicitação.',why:'Exigência central de todas as certificações e do Codex Alimentarius'},
+// ── GENÉTICA ──────────────────────────────────────────────────
+{id:'t140',area:'genetics',sit:['call','fair'],term:'Great-grandparent stock',ipa:'/ɡreɪt ˈɡrændˌpɛərənt stɒk/',trans:'Bisavós (plantel GGP)',ex:'Great-grandparent stock is maintained exclusively by the breeding company — not available commercially.',pt:'→ O plantel de bisavós é mantido exclusivamente pela empresa de melhoramento.',why:'GGP é o nível mais restrito da pirâmide genética — só grandes empresas têm acesso'},
+{id:'t141',area:'genetics',sit:['call','fair'],term:'Pure line',ipa:'/pjʊər laɪn/',trans:'Linha pura',ex:'Pure lines are maintained under strict biosecurity at the breeding company\'s nucleus farms.',pt:'→ Linhas puras mantidas sob biosseguridade estrita nas granjas núcleo.',why:'Base da pirâmide genética — não comercializadas, apenas cruzadas para gerar GGPs'},
+{id:'t142',area:'genetics',sit:['call'],term:'Estimated breeding value',ipa:'/ˈɛstɪmeɪtɪd ˈbriːdɪŋ ˈvæljuː/',trans:'Valor genético estimado',ex:'The sire\'s EBV for breast yield is +2.3 — indicating above-average genetic merit.',pt:'→ O VGE do reprodutor para rendimento de peito é +2,3.',why:'EBV = parâmetro de seleção genética — aparece em catálogos de fornecedores de genética'},
+{id:'t143',area:'genetics',sit:['call'],term:'Genomic selection',ipa:'/dʒɪˈnoʊmɪk sɪˈlɛkʃən/',trans:'Seleção genômica',ex:'Genomic selection has reduced generation interval in the Cobb breeding program by 40%.',pt:'→ A seleção genômica reduziu o intervalo entre gerações no programa Cobb em 40%.',why:'Tecnologia moderna de melhoramento — fornecedores de genética usam esse termo em apresentações'},
+// ── EQUIPAMENTOS ──────────────────────────────────────────────
+{id:'t150',area:'equipment',sit:['visit','call'],term:'Static pressure',ipa:'/ˈstætɪk ˈprɛʃər/',trans:'Pressão estática',ex:'Static pressure in the house is maintained at 0.08 inches of water column — optimal range.',pt:'→ Pressão estática no galpão mantida em 0,08 polegadas de coluna d\'água.',why:'Parâmetro técnico de ventilação — engenheiros de ventilação sempre pedem esse valor'},
+{id:'t151',area:'equipment',sit:['visit'],term:'Feed bin',ipa:'/fiːd bɪn/',trans:'Silo de ração',ex:'Each feed bin holds 30 tonnes — filled twice per week during the finisher phase.',pt:'→ Cada silo de ração comporta 30 toneladas — abastecido duas vezes por semana.',why:'Auditores verificam capacidade e frequência de abastecimento para rastreabilidade de ração'},
+{id:'t152',area:'equipment',sit:['visit'],term:'Heating system',ipa:'/ˈhiːtɪŋ ˈsɪstəm/',trans:'Sistema de aquecimento',ex:'Our heating system uses radiant gas brooders with automated temperature control.',pt:'→ Sistema de aquecimento com campânulas a gás radiantivas e controle automático.',why:'Técnicos estrangeiros sempre perguntam sobre o sistema de aquecimento ao visitar o pinteiro'},
+{id:'t153',area:'equipment',sit:['visit'],term:'Environmental controller',ipa:'/ɪnˌvaɪərənˈmɛntəl kənˈtroʊlər/',trans:'Controlador de ambiência',ex:'The environmental controller monitors temperature, humidity and CO2 — alarms set for deviations.',pt:'→ O controlador de ambiência monitora temperatura, umidade e CO2.',why:'Equipamento que auditores inspecionam para verificar se os parâmetros são controlados'},
+// ── AMBIÊNCIA ─────────────────────────────────────────────────
+{id:'t160',area:'environment',sit:['visit','report'],term:'Thermal comfort zone',ipa:'/ˈθɜːrməl ˈkʌmfərt zoʊn/',trans:'Zona de conforto térmico',ex:'Birds are within the thermal comfort zone — temperature 22°C, humidity 65%.',pt:'→ Aves dentro da zona de conforto térmico — temperatura 22°C, umidade 65%.',why:'Conceito que integra temperatura e umidade — base de qualquer relatório de ambiência'},
+{id:'t161',area:'environment',sit:['visit','report'],term:'Heat stress',ipa:'/hiːt strɛs/',trans:'Estresse térmico por calor',ex:'Heat stress index exceeded threshold on days 15–17 — extra cooling activated.',pt:'→ Índice de estresse térmico ultrapassou o limite nos dias 15–17.',why:'Auditores verificam o protocolo de emergência para estresse térmico — exigência de bem-estar'},
+{id:'t162',area:'environment',sit:['report'],term:'CO2 level',ipa:'/siː oʊ tuː ˈlɛvəl/',trans:'Nível de CO2',ex:'CO2 level measured at 2,800 ppm — below the 3,000 ppm welfare limit.',pt:'→ Nível de CO2 medido em 2.800 ppm — abaixo do limite de bem-estar de 3.000 ppm.',why:'Monitorado em auditorias BRC e Global G.A.P. junto com amônia'},
+{id:'t163',area:'environment',sit:['visit','report'],term:'Minimum ventilation',ipa:'/ˈmɪnɪməm ˌvɛntɪˈleɪʃən/',trans:'Ventilação mínima',ex:'Minimum ventilation rate in winter: 0.8 m³/h/kg — prevents ammonia buildup at low temperatures.',pt:'→ Taxa de ventilação mínima no inverno: 0,8 m³/h/kg.',why:'Parâmetro crítico no pinteiro — equilíbrio entre calor e qualidade do ar'},
+];
+
+// ═══════════════════════════════════════════════════════════════
+// DADOS — CONFUSÕES
+// ═══════════════════════════════════════════════════════════════
+const CONFUSIONS = [
+  {
+    id:'c1', label:'KPI de mortalidade',
+    vsA:'Mortality', transA:'Mortalidade (morte natural)',
+    exA:'"Mortality rate this week: 0.3%"',
+    vsB:'Culls', transB:'Refugos / descarte voluntário',
+    exB:'"We had 120 culls — underweight birds removed on day 7"',
+    rule:'<strong>Mortality</strong> = aves que morreram. <strong>Culls</strong> = aves descartadas vivas por decisão técnica. São registrados separados no flock report — confundi-los muda completamente o diagnóstico do lote.'
+  },
+  {
+    id:'c2', label:'KPI de ovos',
+    vsA:'Hen-day production', transA:'Galinhas vivas hoje',
+    exA:'"HDP = 94.2% — based on birds alive today"',
+    vsB:'Hen-housed production', transB:'Galinhas alojadas no início',
+    exB:'"HH production = 88.6% — based on hens at placement"',
+    rule:'<strong>HDP</strong> divide pelos vivos hoje — sempre mais alto. <strong>HH</strong> divide pelo total original — inclui mortalidade no denominador. Relatórios europeus usam HH; relatórios americanos usam HDP. Saber qual foi pedido evita conflito.'
+  },
+  {
+    id:'c3', label:'Pesos',
+    vsA:'Live weight', transA:'Peso vivo',
+    exA:'"Average live weight at day 35: 2.12 kg"',
+    vsB:'Carcass weight', transB:'Peso de carcaça',
+    exB:'"Average carcass weight after evisceration: 1.57 kg"',
+    rule:'<strong>Live weight</strong> é o peso do animal vivo — usado em contratos de venda por peso vivo. <strong>Carcass weight</strong> é após o abate e evisceração — base para cálculo de yield. Confundir os dois invalida qualquer cálculo de rendimento.'
+  },
+  {
+    id:'c4', label:'Eclodibilidade',
+    vsA:'Hatchability', transA:'Eclodibilidade (base: ovos férteis)',
+    exA:'"Hatchability: 86.3% of fertile eggs set"',
+    vsB:'Fertility', transB:'Fertilidade (base: total de ovos)',
+    exB:'"Fertility: 94.1% of all eggs collected were fertile"',
+    rule:'<strong>Hatchability</strong> = % de ovos férteis que eclodiram. <strong>Fertility</strong> = % de ovos totais que eram férteis. Um problema de eclosão pode vir de fertilidade baixa OU de temperatura de incubação — os dois indicadores juntos definem onde está o problema.'
+  },
+  {
+    id:'c5', label:'FCR e seu inverso',
+    vsA:'FCR (Feed Conversion Ratio)', transA:'Conversão alimentar — quanto menor, melhor',
+    exA:'"Our FCR is 1.62 — target is 1.60"',
+    vsB:'Feed efficiency', transB:'Eficiência alimentar — quanto maior, melhor',
+    exB:'"Feed efficiency: 0.617 kg gain per kg feed"',
+    rule:'FCR = kg ração / kg ganho. Feed efficiency = kg ganho / kg ração. São o inverso um do outro. Cobb usa FCR; alguns nutricionistas americanos preferem feed efficiency. Saber os dois evita confusão numa call.'
+  },
+  {
+    id:'c6', label:'Ações corretivas',
+    vsA:'Corrective action', transA:'Resolve o problema que JÁ ocorreu',
+    exA:'"Corrective action: retrained staff on hand-washing procedure"',
+    vsB:'Preventive action', transB:'Evita que o problema OCORRA de novo',
+    exB:'"Preventive action: installed automatic sanitizer dispensers at entry"',
+    rule:'<strong>Corrective</strong> corrige o que já aconteceu. <strong>Preventive</strong> evita que aconteça novamente. O BRC exige os dois no formulário de CAPA — auditores verificam se a empresa entende a diferença.'
+  },
+  {
+    id:'c7', label:'Resfriamento de carcaça',
+    vsA:'Air chilling', transA:'Resfriamento a ar — sem adição de água',
+    exA:'"We use air chilling — 0% water retention, required for EU market"',
+    vsB:'Water immersion chilling', transB:'Resfriamento por imersão em água',
+    exB:'"Water immersion chilling adds up to 8% water retention to the carcass"',
+    rule:'<strong>Air chilling</strong> é exigido pela UE. <strong>Water chilling</strong> é o padrão americano e doméstico. A diferença define qual mercado você pode acessar — auditores europeus sempre perguntam qual sistema é usado.'
+  },
+  {
+    id:'c8', label:'Tipos de NC',
+    vsA:'Minor non-conformance', transA:'NC menor — prazo de 30–90 dias',
+    exA:'"Minor NC: label missing date of calibration on thermometer"',
+    vsB:'Major non-conformance', transB:'NC maior — prazo de 7–28 dias, pode impedir certificação',
+    exB:'"Major NC: no HACCP records found for the last 30 days"',
+    rule:'A diferença entre minor e major muda completamente o prazo e a gravidade da resposta. Uma <strong>critical NC</strong> pode suspender a certificação imediatamente. Conhecer essa hierarquia é fundamental antes de qualquer auditoria.'
+  },
+  {
+    id:'c9', label:'Programas de vacinação',
+    vsA:'Titer', transA:'Título (resultado do teste sorológico)',
+    exA:'"ELISA titer for Newcastle: 4,800 — protection confirmed"',
+    vsB:'Challenge', transB:'Exposição controlada ao agente (teste de proteção)',
+    exB:'"Vaccine efficacy confirmed by challenge trial at 3 weeks post-vaccination"',
+    rule:'<strong>Titer</strong> é o resultado sorológico de vacinação — mede anticorpos. <strong>Challenge</strong> é um teste em que aves vacinadas são expostas ao agente real. Os dois medem proteção de formas diferentes — auditores de sanidade perguntam sobre os dois.'
+  },
+  {
+    id:'c10', label:'Tipos de feed',
+    vsA:'Withdrawal feed', transA:'Ração pré-abate (sem medicamentos)',
+    exA:'"Switching to withdrawal feed 5 days before slaughter — no antibiotics"',
+    vsB:'Medicated feed', transB:'Ração com medicamento incluído',
+    exB:'"Medicated feed used for coccidiosis control — contains Salinomycin 60 g/ton"',
+    rule:'<strong>Withdrawal feed</strong> marca o início do período de carência — sem medicamentos. <strong>Medicated feed</strong> é a ração com medicamento incorporado. Confundir os dois em exportação gera rejeição de carregamento por resíduo.'
+  }
+];
+
+// ═══════════════════════════════════════════════════════════════
+// DADOS — SIGLAS
+// ═══════════════════════════════════════════════════════════════
+const ACRONYMS = [
+  {code:'FCR',expansion:'Feed Conversion Ratio',how:'Pronuncia letra por letra: "eff-see-ar"',context:'A conversão alimentar — kg de ração por kg de ganho. KPI central de frangos de corte.',ex:'"Our FCR this cycle was 1.62 — slightly above the 1.60 target."'},
+  {code:'ADG',expansion:'Average Daily Gain',how:'Pronuncia letra por letra: "ay-dee-jee"',context:'Ganho de peso diário médio em gramas. Aparece em flock reports e manuais de performance.',ex:'"ADG at day 35 was 84 g — on track for the target weight."'},
+  {code:'EEF',expansion:'European Efficiency Factor',how:'Pronuncia letra por letra: "ee-ee-eff"',context:'Índice combinado de eficiência produtiva. Combina mortalidade, ADG, FCR e peso final.',ex:'"Our EEF this cycle was 412 — top 15% of the company\'s farms."'},
+  {code:'HDP',expansion:'Hen-Day Production',how:'Pronuncia letra por letra: "aitch-dee-pee"',context:'Produção de ovos baseada nas aves vivas hoje. Usado em relatórios de poedeiras.',ex:'"HDP this week: 93.4% — above the 92% Hy-Line target."'},
+  {code:'FCR',expansion:'Feed Conversion Ratio',how:'Pronuncia: "eff-see-ar"',context:'Ver entrada principal.',ex:'—'},
+  {code:'FPD',expansion:'Foot Pad Dermatitis',how:'Pronuncia letra por letra: "eff-pee-dee"',context:'Dermatite de coxim plantar — avaliada no frigorífico e reportada à granja.',ex:'"FPD score at slaughter was 1.1 — below the BRC threshold of 2.0."'},
+  {code:'MOA',expansion:'Mortality on Arrival',how:'Pronuncia letra por letra: "em-oh-ay"',context:'Mortalidade no transporte — medida no frigorífico ao desembarque.',ex:'"MOA this week: 0.08% — within the 0.2% maximum allowed."'},
+  {code:'CAPA',expansion:'Corrective and Preventive Action',how:'Pronuncia como palavra: "CAPA" (igual ao português)',context:'Plano de ação corretiva e preventiva — exigido em todas as certificações.',ex:'"A CAPA was submitted for the temperature deviation — due in 15 days."'},
+  {code:'NC',expansion:'Non-Conformance',how:'Pronuncia letra por letra: "en-see"',context:'Não conformidade identificada em auditoria. Pode ser minor, major ou critical.',ex:'"Two NCs were raised: one minor, one major — both addressed."'},
+  {code:'BRC',expansion:'British Retail Consortium',how:'Pronuncia letra por letra: "bee-ar-see"',context:'Norma de segurança alimentar exigida por varejistas britânicos e europeus.',ex:'"Our plant holds BRC certification at Grade AA."'},
+  {code:'SIF',expansion:'Serviço de Inspeção Federal',how:'Pronuncia letra por letra: "ess-eye-eff"',context:'Sigla brasileira que aparece em documentos internacionais — sempre explicar ao interlocutor estrangeiro.',ex:'"The health certificate is issued and stamped by SIF — Brazil\'s federal inspection service."'},
+  {code:'SPS',expansion:'Sanitary and Phytosanitary Measures',how:'Pronuncia letra por letra: "ess-pee-ess"',context:'Acordo da OMC que regula medidas sanitárias no comércio. Base de negociações de acesso.',ex:'"The importing country\'s SPS measures require Salmonella-free certificates."'},
+  {code:'WOAH',expansion:'World Organisation for Animal Health',how:'Pronuncia como palavra: "WO-ah"',context:'Antigo OIE — organização internacional de referência em saúde animal.',ex:'"Brazil is recognized by WOAH as free of Highly Pathogenic Avian Influenza in commercial flocks."'},
+  {code:'HACCP',expansion:'Hazard Analysis and Critical Control Points',how:'Pronuncia como palavra: "HAS-sip"',context:'Sistema de segurança alimentar obrigatório para exportação. Identifica PCCs na produção.',ex:'"Our HACCP plan identifies 4 CCPs — all validated and monitored daily."'},
+  {code:'CCP',expansion:'Critical Control Point',how:'Pronuncia letra por letra: "see-see-pee"',context:'Ponto crítico de controle no plano HACCP. Onde o controle é essencial.',ex:'"Metal detection is a CCP — every reject is investigated and documented."'},
+  {code:'CAS',expansion:'Controlled Atmosphere Stunning',how:'Pronuncia letra por letra: "see-ay-ess"',context:'Atordoamento por atmosfera controlada (CO2). Exigido por compradores europeus de bem-estar.',ex:'"We use CAS — birds are stunned with CO2 before entering the slaughter line."'},
+  {code:'GGP',expansion:'Great-Grandparent (stock)',how:'Pronuncia letra por letra: "jee-jee-pee"',context:'Bisavós na pirâmide genética. Nível exclusivo das empresas de melhoramento.',ex:'"GGP flocks are maintained at the company\'s nucleus farm under maximum biosecurity."'},
+  {code:'GP',expansion:'Grandparent (stock)',how:'Pronuncia letra por letra: "jee-pee"',context:'Avós — nível intermediário da pirâmide genética. Produzem as matrizes.',ex:'"Our GP flock supplies 3 parent stock integrators in the region."'},
+  {code:'PS',expansion:'Parent Stock',how:'Pronuncia letra por letra: "pee-ess"',context:'Matrizes — produzem os pintos comerciais. Nível mais operacional da pirâmide.',ex:'"We manage 12 PS farms with a combined capacity of 480,000 hens."'},
+  {code:'EBV',expansion:'Estimated Breeding Value',how:'Pronuncia letra por letra: "ee-bee-vee"',context:'Valor genético estimado — parâmetro de seleção. Aparece em catálogos de genética.',ex:'"The sire\'s EBV for breast yield is +2.3 — above the line average."'},
+];
+
+// ═══════════════════════════════════════════════════════════════
+// DADOS — FRASES PRONTAS
+// ═══════════════════════════════════════════════════════════════
+const PHRASES = [
+  // AUDITORIA
+  {sit:'audit',icon:'audit',en:"The non-conformance has been addressed — here is our corrective action plan with evidence.",pt:"A não conformidade foi tratada — aqui está nosso plano de ação com evidências."},
+  {sit:'audit',icon:'audit',en:"Could you please clarify the finding so we can address it accurately in our CAPA?",pt:"Você poderia esclarecer o achado para que possamos tratá-lo com precisão no CAPA?"},
+  {sit:'audit',icon:'audit',en:"All records are available for your review — traceability from placement to dispatch.",pt:"Todos os registros estão disponíveis para revisão — rastreabilidade do alojamento ao embarque."},
+  {sit:'audit',icon:'audit',en:"Our vaccination program follows the schedule recommended by the genetic supplier.",pt:"Nosso programa de vacinação segue o calendário recomendado pelo fornecedor de genética."},
+  {sit:'audit',icon:'audit',en:"This is a minor deviation — a corrective action was implemented the same day.",pt:"Este é um desvio menor — a ação corretiva foi implementada no mesmo dia."},
+  {sit:'audit',icon:'audit',en:"We conduct internal audits monthly — the last report is available for your reference.",pt:"Realizamos auditorias internas mensalmente — o último relatório está disponível."},
+  // CALL
+  {sit:'call',icon:'call',en:"Could you please repeat that? I didn't catch the last part.",pt:"Você poderia repetir? Não entendi a última parte."},
+  {sit:'call',icon:'call',en:"Just to confirm my understanding — you're saying the FCR target is 1.60 at day 35, correct?",pt:"Só para confirmar — você está dizendo que a meta de CA é 1,60 no dia 35, correto?"},
+  {sit:'call',icon:'call',en:"Could you spell that out for me? I want to make sure I have the correct term.",pt:"Você poderia soletrar? Quero ter certeza de que tenho o termo correto."},
+  {sit:'call',icon:'call',en:"I'll send you a follow-up email summarizing what we discussed today.",pt:"Enviarei um e-mail de resumo com o que discutimos hoje."},
+  {sit:'call',icon:'call',en:"Let me share my screen so you can see the flock report data directly.",pt:"Vou compartilhar minha tela para você ver os dados do relatório de lote diretamente."},
+  {sit:'call',icon:'call',en:"Can we schedule a follow-up call next week to review the performance results?",pt:"Podemos agendar uma call de acompanhamento na semana que vem para revisar os resultados?"},
+  // VISITA TÉCNICA
+  {sit:'visit',icon:'visit',en:"Welcome to our farm. I'll guide you through each area — please follow the biosecurity protocol.",pt:"Bem-vindo à nossa granja. Vou guiá-lo por cada área — por favor, siga o protocolo de biosseguridade."},
+  {sit:'visit',icon:'visit',en:"As you can see, chicks are spreading evenly — the brooding temperature is correct.",pt:"Como você pode ver, os pintinhos estão distribuídos uniformemente — a temperatura está correta."},
+  {sit:'visit',icon:'visit',en:"We switched to tunnel ventilation at day 21 — current static pressure is 0.08 inches.",pt:"Mudamos para ventilação em túnel no dia 21 — pressão estática atual é 0,08 polegadas."},
+  {sit:'visit',icon:'visit',en:"Ammonia levels were measured this morning — currently at 18 ppm, well below the threshold.",pt:"Os níveis de amônia foram medidos esta manhã — 18 ppm, bem abaixo do limite."},
+  {sit:'visit',icon:'visit',en:"Do you have any questions about our litter management protocol?",pt:"Você tem alguma dúvida sobre nosso protocolo de manejo de cama?"},
+  {sit:'visit',icon:'visit',en:"This is our most recent flock report — let me walk you through the key performance indicators.",pt:"Este é nosso relatório de lote mais recente — vou apresentar os principais indicadores de desempenho."},
+  // RELATÓRIO
+  {sit:'report',icon:'report',en:"Current FCR at day 35 is 1.62 — slightly above our target of 1.60 due to heat stress on days 18–22.",pt:"CA atual no dia 35 é 1,62 — levemente acima da meta de 1,60 devido ao estresse térmico nos dias 18–22."},
+  {sit:'report',icon:'report',en:"Livability at day 42 was 97.4% — above the 96.5% target. Mortality cause: 60% respiratory, 40% other.",pt:"Viabilidade no dia 42 foi 97,4% — acima da meta de 96,5%."},
+  {sit:'report',icon:'report',en:"Condemnation rate at slaughter was 1.1% — cellulitis was the leading cause at 0.4%.",pt:"Taxa de condenação no abate foi 1,1% — celulite foi a principal causa com 0,4%."},
+  {sit:'report',icon:'report',en:"Weekly ammonia readings: 14, 16, 18, 22, 19, 17 ppm — all within the 25 ppm welfare threshold.",pt:"Leituras semanais de amônia: 14, 16, 18, 22, 19, 17 ppm — todas dentro do limite de 25 ppm."},
+  // FEIRA
+  {sit:'fair',icon:'fair',en:"Hello, I'm a poultry manager from Brazil — I work with broiler production for export markets.",pt:"Olá, sou gerente avícola do Brasil — trabalho com frango de corte para mercados exportadores."},
+  {sit:'fair',icon:'fair',en:"Could you tell me more about the technical support provided with this product?",pt:"Você poderia me contar mais sobre o suporte técnico fornecido com este produto?"},
+  {sit:'fair',icon:'fair',en:"Do you have a distributor in Brazil? I'd like to discuss a potential partnership.",pt:"Vocês têm um distribuidor no Brasil? Gostaria de discutir uma parceria potencial."},
+  {sit:'fair',icon:'fair',en:"May I have your business card and some technical documentation to review?",pt:"Posso ter seu cartão de visitas e alguma documentação técnica para revisar?"},
+  // E-MAIL
+  {sit:'email',icon:'email',en:"Please find attached the requested health certificate for shipment reference 2024-0312.",pt:"Segue em anexo o certificado sanitário solicitado para a remessa referência 2024-0312."},
+  {sit:'email',icon:'email',en:"I am writing to follow up on our conversation at IPPE regarding the Ross 308 performance data.",pt:"Escrevo para dar continuidade à nossa conversa no IPPE sobre os dados de desempenho Ross 308."},
+  {sit:'email',icon:'email',en:"Could you please send us the updated management manual in English for our technical team?",pt:"Você poderia nos enviar o manual de manejo atualizado em inglês para nossa equipe técnica?"},
+  {sit:'email',icon:'email',en:"We would like to schedule a technical visit to our farm next month — please advise on availability.",pt:"Gostaríamos de agendar uma visita técnica à nossa granja no próximo mês — favor confirmar disponibilidade."},
+];
+
+// ═══════════════════════════════════════════════════════════════
+// ESTADO
+// ═══════════════════════════════════════════════════════════════
+const STORAGE_KEY = 'poultry-english:glossary-v1';
+let voices = [], selVoice = null, studySpd = 1, studyExSpd = 1;
+let currentArea = 'all', currentSit = 'all', currentSearch = '';
+let currentMode = 'consult';
+let currentSection = 'terms';
+let knownTerms = new Set(), reviewTerms = new Set();
+let studyQueue = [], studyIdx = 0, studyKnown = 0, studyReview = 0, studyFlipped = false;
+let currentPhraseSit = 'all';
+
+// ═══════════════════════════════════════════════════════════════
+// STORAGE
+// ═══════════════════════════════════════════════════════════════
+async function saveGlossary(){
+  try{
+    await window.storage.set(STORAGE_KEY, JSON.stringify({
+      known:[...knownTerms], review:[...reviewTerms]
+    }));
+  } catch(e){}
+}
+async function loadGlossary(){
+  try{
+    const r = await window.storage.get(STORAGE_KEY);
+    if(r){
+      const d = JSON.parse(r.value);
+      knownTerms = new Set(d.known||[]);
+      reviewTerms = new Set(d.review||[]);
+    }
+  } catch(e){}
+}
+
+// ═══════════════════════════════════════════════════════════════
+// VOZ
+// ═══════════════════════════════════════════════════════════════
+function loadVoices(){
+  voices = window.speechSynthesis.getVoices().filter(v=>v.lang.startsWith('en'));
+  const pref=['Google US English','Samantha','Karen','Google UK English Female','Microsoft Aria'];
+  const vb = document.getElementById('voice-btns');
+  const vs = document.getElementById('voice-status');
+  if(!voices.length){vs.textContent='Vozes não disponíveis neste navegador';return;}
+  vs.textContent='';
+  let topVoices = [];
+  pref.forEach(n=>{const v=voices.find(x=>x.name===n);if(v)topVoices.push(v);});
+  voices.forEach(v=>{if(!topVoices.includes(v))topVoices.push(v);});
+  voices = topVoices.slice(0,4);
+  selVoice = voices[0];
+  vb.innerHTML='';
+  voices.forEach((v,i)=>{
+    const b=document.createElement('button');
+    b.className='vbtn'+(i===0?' active':'');
+    b.textContent=v.name.replace('Google ','').replace(' English','').replace('Microsoft ','');
+    b.onclick=()=>{selVoice=v;vb.querySelectorAll('.vbtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');};
+    vb.appendChild(b);
+  });
+}
+function stopAll(){window.speechSynthesis.cancel();document.querySelectorAll('.playing').forEach(b=>b.classList.remove('playing'));}
+function sayText(text, btn, spd=1){
+  if(!window.speechSynthesis||!voices.length)return;
+  stopAll();
+  const u=new SpeechSynthesisUtterance(text);
+  u.voice=selVoice; u.lang='en-US'; u.rate=spd;
+  if(btn){btn.classList.add('playing');u.onend=()=>btn.classList.remove('playing');}
+  window.speechSynthesis.speak(u);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// STATS
+// ═══════════════════════════════════════════════════════════════
+function updateStats(){
+  const k=knownTerms.size, r=reviewTerms.size, t=TERMS.length;
+  document.getElementById('stat-total').textContent=t;
+  document.getElementById('stat-known').textContent=k;
+  document.getElementById('stat-review').textContent=r;
+  document.getElementById('stat-pct').textContent=Math.round(k/t*100)+'%';
+  document.getElementById('total-badge').textContent=t+'+ termos';
+  const rb=document.getElementById('review-banner');
+  const rc=document.getElementById('review-count-banner');
+  if(r>0){rb.style.display='flex';rc.textContent=r;}else{rb.style.display='none';}
+}
+
+// ═══════════════════════════════════════════════════════════════
+// FILTROS & BUSCA
+// ═══════════════════════════════════════════════════════════════
+function setArea(a){
+  currentArea=a;
+  document.querySelectorAll('[data-area]').forEach(b=>b.classList.toggle('active',b.dataset.area===a));
+  renderConsult();
+}
+function setSit(s){
+  currentSit=s;
+  document.querySelectorAll('.sit-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  renderConsult();
+}
+function handleSearch(v){
+  currentSearch=v.toLowerCase();
+  const cl=document.getElementById('search-clear');
+  cl.classList.toggle('show',v.length>0);
+  document.getElementById('search-hint').style.display=v.length>0?'none':'block';
+  renderConsult();
+}
+function clearSearch(){
+  const inp=document.getElementById('search-input');
+  inp.value=''; currentSearch='';
+  document.getElementById('search-clear').classList.remove('show');
+  document.getElementById('search-hint').style.display='block';
+  renderConsult();
+}
+function getFiltered(){
+  return TERMS.filter(t=>{
+    const areaOk = currentArea==='all'||t.area===currentArea;
+    const sitOk = currentSit==='all'
+      ? true
+      : currentSit==='review'
+        ? reviewTerms.has(t.id)
+        : t.sit.includes(currentSit);
+    const searchOk = !currentSearch
+      || t.term.toLowerCase().includes(currentSearch)
+      || t.trans.toLowerCase().includes(currentSearch)
+      || t.ex.toLowerCase().includes(currentSearch);
+    return areaOk && sitOk && searchOk;
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RENDER CONSULTA
+// ═══════════════════════════════════════════════════════════════
+const AREA_DOTS = {broiler:'dot-broiler',layer:'dot-layer',hatchery:'dot-hatchery',breeder:'dot-breeder',nutrition:'dot-nutrition',health:'dot-health',welfare:'dot-welfare',slaughter:'dot-slaughter',export:'dot-export',audit:'dot-audit',genetics:'dot-genetics',equipment:'dot-equipment',environment:'dot-environment'};
+const AREA_LABELS = {broiler:'Frango de corte',layer:'Poedeiras',hatchery:'Incubatório',breeder:'Matrizes',nutrition:'Nutrição',health:'Saúde',welfare:'Bem-estar',slaughter:'Abate',export:'Exportação',audit:'Auditorias',genetics:'Genética',equipment:'Equipamentos',environment:'Ambiência'};
+const SIT_LABELS = {audit:'Auditoria',call:'Call',visit:'Visita técnica',report:'Flock report',email:'E-mail',fair:'Feira',label:'Rótulo'};
+
+function renderConsult(){
+  const filtered=getFiltered();
+  const grid=document.getElementById('gloss-grid');
+  const empty=document.getElementById('empty-state');
+  const rn=document.getElementById('results-num');
+  rn.textContent=filtered.length;
+  if(!filtered.length){grid.innerHTML='';empty.style.display='block';return;}
+  empty.style.display='none';
+  grid.innerHTML=filtered.map(t=>{
+    const dotCls=AREA_DOTS[t.area]||'';
+    const isOpen=false;
+    const isKnown=knownTerms.has(t.id);
+    const isReview=reviewTerms.has(t.id);
+    const statusCls=isKnown?'known':isReview?'review':'';
+    const sitTags=t.sit.map(s=>`<span class="gloss-tag sit-tag">${SIT_LABELS[s]||s}</span>`).join('');
+    const areaTag=`<span class="gloss-tag">${AREA_LABELS[t.area]||t.area}</span>`;
+    return `<div class="gloss-card ${statusCls}" id="gc-${t.id}">
+      <div class="gloss-card-header" onclick="toggleGlossCard('${t.id}')">
+        <span class="gloss-area-dot ${dotCls}"></span>
+        <span class="gloss-term">${t.term}</span>
+        <span class="gloss-ipa">${t.ipa}</span>
+        <div class="gloss-actions" onclick="event.stopPropagation()">
+          <button class="gloss-audio-btn" id="gab-${t.id}" onclick="sayText('${t.term.replace(/'/g,"\\'")}',this,1)" title="Ouvir pronunciação">
+            <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          </button>
+          <button class="gloss-know-btn ${isKnown?'known':isReview?'review':''}" id="gkb-${t.id}" onclick="toggleKnown('${t.id}')" title="${isKnown?'Já sei':'Marcar como sei'}">
+            ${isKnown?'✓':isReview?'↺':'○'}
+          </button>
+        </div>
+        <svg class="gloss-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="gloss-card-body" id="gcb-${t.id}">
+        <div class="gloss-translation">${t.trans}</div>
+        <div class="gloss-ex-audio">
+          <button class="abtn-small" id="geab-${t.id}" onclick="sayText('${t.ex.replace(/'/g,"\\'")}',this,1)"><svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>Ouvir frase</button>
+        </div>
+        <div class="gloss-example">${t.ex}</div>
+        <div class="gloss-example-pt">${t.pt}</div>
+        <div class="gloss-why">${t.why}</div>
+        <div class="gloss-tags">${areaTag}${sitTags}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+function toggleGlossCard(id){
+  const card=document.getElementById('gc-'+id);
+  card.classList.toggle('open');
+}
+function toggleKnown(id){
+  if(knownTerms.has(id)){
+    knownTerms.delete(id);
+    reviewTerms.add(id);
+  } else if(reviewTerms.has(id)){
+    reviewTerms.delete(id);
+  } else {
+    knownTerms.add(id);
+  }
+  updateStats(); saveGlossary(); renderConsult();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// MODO TOGGLE
+// ═══════════════════════════════════════════════════════════════
+function setMode(m){
+  currentMode=m;
+  document.getElementById('btn-consult').classList.toggle('active',m==='consult');
+  document.getElementById('btn-study').classList.toggle('active',m==='study');
+  document.getElementById('consult-area').style.display=m==='consult'?'block':'none';
+  const sa=document.getElementById('study-area');
+  sa.classList.toggle('visible',m==='study');
+  if(m==='study') initStudy();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// MODO ESTUDO
+// ═══════════════════════════════════════════════════════════════
+function initStudy(queue){
+  studyQueue = queue || getFiltered();
+  studyIdx=0; studyKnown=0; studyReview=0; studyFlipped=false;
+  document.getElementById('study-summary').classList.remove('show');
+  document.getElementById('study-card').style.display='flex';
+  document.getElementById('study-decision-row').style.display='none';
+  buildStudyDots();
+  renderStudyCard();
+}
+function studyReviewQueue(){
+  setMode('study');
+  const queue=TERMS.filter(t=>reviewTerms.has(t.id));
+  if(!queue.length){showToast('Nenhum termo na fila de revisão');return;}
+  initStudy(queue);
+}
+function buildStudyDots(){
+  const d=document.getElementById('study-dots');
+  d.innerHTML=studyQueue.map((_,i)=>`<div class="study-dot${i===0?' active':''}" id="sd-${i}" onclick="studyNav(${i}-studyIdx)"></div>`).join('');
+}
+function updateStudyDots(){
+  studyQueue.forEach((_,i)=>{
+    const d=document.getElementById('sd-'+i);
+    if(!d)return;
+    d.className='study-dot'+(i===studyIdx?' active':i<studyIdx?knownTerms.has(studyQueue[i].id)?' done-known':' done-review':'');
+  });
+  const pct=Math.round(studyIdx/studyQueue.length*100);
+  document.getElementById('study-prog-fill').style.width=pct+'%';
+  document.getElementById('study-counter').textContent=(studyIdx+1)+' de '+studyQueue.length;
+}
+function renderStudyCard(){
+  if(studyIdx>=studyQueue.length){showStudySummary();return;}
+  const t=studyQueue[studyIdx];
+  studyFlipped=false;
+  document.getElementById('study-corner-label').textContent='Toque para ver a tradução';
+  document.getElementById('study-area-label').textContent=AREA_LABELS[t.area]||t.area;
+  document.getElementById('study-word').textContent=t.term;
+  document.getElementById('study-ipa').textContent=t.ipa;
+  document.getElementById('study-trans').textContent=t.trans;
+  document.getElementById('study-ex').textContent=t.ex;
+  document.getElementById('study-ex-pt').textContent=t.pt;
+  document.getElementById('study-why').textContent=t.why;
+  const front=document.getElementById('study-front');
+  const back=document.getElementById('study-back');
+  front.classList.remove('hidden'); back.classList.remove('visible');
+  document.getElementById('study-decision-row').style.display='none';
+  updateStudyDots();
+}
+function flipStudyCard(){
+  if(studyFlipped)return;
+  studyFlipped=true;
+  document.getElementById('study-corner-label').textContent='Como você se saiu?';
+  document.getElementById('study-front').classList.add('hidden');
+  document.getElementById('study-back').classList.add('visible');
+  document.getElementById('study-decision-row').style.display='flex';
+}
+function markStudy(verdict){
+  const t=studyQueue[studyIdx];
+  if(verdict==='known'){knownTerms.add(t.id);reviewTerms.delete(t.id);studyKnown++;}
+  else{reviewTerms.add(t.id);knownTerms.delete(t.id);studyReview++;}
+  updateStats(); saveGlossary();
+  studyIdx++;
+  renderStudyCard();
+}
+function studyNav(delta){
+  const newIdx=studyIdx+delta;
+  if(newIdx<0||newIdx>=studyQueue.length)return;
+  studyIdx=newIdx; studyFlipped=false; renderStudyCard();
+}
+function restartStudy(){
+  document.getElementById('study-summary').classList.remove('show');
+  document.getElementById('study-card').style.display='flex';
+  initStudy(studyQueue);
+}
+function showStudySummary(){
+  document.getElementById('study-card').style.display='none';
+  document.getElementById('study-decision-row').style.display='none';
+  const s=document.getElementById('study-summary');
+  s.classList.add('show');
+  document.getElementById('sum-known').textContent=studyKnown;
+  document.getElementById('sum-review').textContent=studyReview;
+}
+function studySayWord(){
+  if(!studyQueue.length)return;
+  const t=studyQueue[studyIdx];
+  sayText(t.term, document.getElementById('study-abtn-word'), studySpd);
+}
+function studySayEx(){
+  if(!studyQueue.length)return;
+  const t=studyQueue[studyIdx];
+  sayText(t.ex, document.getElementById('study-abtn-ex'), studyExSpd);
+}
+function setStudySpd(s,btn){
+  studySpd=s;
+  document.querySelectorAll('#study-spd1,#study-spd07').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function setStudyExSpd(s,btn){
+  studyExSpd=s;
+  document.querySelectorAll('#study-exspd1,#study-exspd07').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SEÇÕES
+// ═══════════════════════════════════════════════════════════════
+function showSection(s){
+  currentSection=s;
+  ['terms','confusions','acronyms','phrases'].forEach(x=>{
+    document.getElementById('sec-'+x).style.display=x===s?'block':'none';
+  });
+  document.querySelectorAll('.filter-btn').forEach((b,i)=>{
+    const secs=['terms','confusions','acronyms','phrases'];
+    b.classList.toggle('active',secs[i]===s&&b.closest('.section'));
+  });
+  if(s==='confusions') renderConfusions();
+  if(s==='acronyms') renderAcronyms();
+  if(s==='phrases') renderPhrases();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RENDER CONFUSÕES
+// ═══════════════════════════════════════════════════════════════
+function renderConfusions(){
+  const g=document.getElementById('confusions-grid');
+  g.innerHTML=CONFUSIONS.map(c=>`
+    <div class="confusion-card" id="conf-${c.id}">
+      <div class="confusion-header" onclick="toggleConf('${c.id}')">
+        <div class="confusion-vs"><em>${c.vsA}</em> vs. <em>${c.vsB}</em></div>
+        <div class="confusion-badge">${c.label}</div>
+        <svg class="confusion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="confusion-body">
+        <div class="confusion-pair">
+          <div class="confusion-term-block">
+            <div class="confusion-term">${c.vsA}</div>
+            <div class="confusion-term-trans">${c.transA}</div>
+            <div class="confusion-term-ex">${c.exA}</div>
+          </div>
+          <div class="confusion-term-block">
+            <div class="confusion-term">${c.vsB}</div>
+            <div class="confusion-term-trans">${c.transB}</div>
+            <div class="confusion-term-ex">${c.exB}</div>
+          </div>
+        </div>
+        <div class="confusion-rule">💡 ${c.rule}</div>
+      </div>
+    </div>`).join('');
+}
+function toggleConf(id){document.getElementById('conf-'+id).classList.toggle('open');}
+
+// ═══════════════════════════════════════════════════════════════
+// RENDER SIGLAS
+// ═══════════════════════════════════════════════════════════════
+function renderAcronyms(){
+  const g=document.getElementById('acronyms-grid');
+  // Dedupe
+  const seen=new Set();
+  const unique=ACRONYMS.filter(a=>{if(seen.has(a.code))return false;seen.add(a.code);return true;});
+  g.innerHTML=unique.map((a,i)=>`
+    <div class="acronym-card" id="acr-${i}">
+      <div class="acronym-header" onclick="toggleAcr(${i})">
+        <div class="acronym-code">${a.code}</div>
+        <div class="acronym-expansion">${a.expansion}</div>
+        <svg class="acronym-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="acronym-body">
+        <div class="acronym-context">${a.context}</div>
+        <div class="acronym-how">🔊 Como pronunciar: <strong>${a.how}</strong></div>
+        <div class="acronym-ex">${a.ex}</div>
+      </div>
+    </div>`).join('');
+}
+function toggleAcr(i){document.getElementById('acr-'+i).classList.toggle('open');}
+
+// ═══════════════════════════════════════════════════════════════
+// RENDER FRASES
+// ═══════════════════════════════════════════════════════════════
+const PHRASE_ICONS = {
+  audit:`<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
+  call:`<svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>`,
+  visit:`<svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  report:`<svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
+  fair:`<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+  email:`<svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`
+};
+const SIT_FULL = {audit:'Auditoria',call:'Call / Videoconferência',visit:'Visita técnica',report:'Relatório',fair:'Feira',email:'E-mail'};
+function filterPhrases(s){
+  currentPhraseSit=s;
+  document.querySelectorAll('.phrase-sit-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  renderPhrases();
+}
+function renderPhrases(){
+  const filtered=PHRASES.filter(p=>currentPhraseSit==='all'||p.sit===currentPhraseSit);
+  const g=document.getElementById('phrases-grid');
+  g.innerHTML=filtered.map((p,i)=>`
+    <div class="phrase-card">
+      <div class="phrase-icon">${PHRASE_ICONS[p.icon]||PHRASE_ICONS.audit}</div>
+      <div class="phrase-content">
+        <div class="phrase-sit-label">${SIT_FULL[p.sit]||p.sit}</div>
+        <div class="phrase-en">${p.en}</div>
+        <div class="phrase-pt">${p.pt}</div>
+      </div>
+      <button class="phrase-audio-btn" id="pab-${i}" onclick="sayText('${p.en.replace(/'/g,"\\'")}',this,1)" title="Ouvir">
+        <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+      </button>
+    </div>`).join('');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// TOAST
+// ═══════════════════════════════════════════════════════════════
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════════
+if(window.speechSynthesis){
+  if(window.speechSynthesis.onvoiceschanged!==undefined) window.speechSynthesis.onvoiceschanged=loadVoices;
+  loadVoices();
+}
+(async()=>{
+  await loadGlossary();
+  updateStats();
+  renderConsult();
+})();
+</script>
+</body>
+</html>
