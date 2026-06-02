@@ -921,18 +921,18 @@ let currentPhraseSit = 'all';
 // ═══════════════════════════════════════════════════════════════
 // STORAGE
 // ═══════════════════════════════════════════════════════════════
-async function saveGlossary(){
+function saveGlossary(){
   try{
-    await window.storage.set(STORAGE_KEY, JSON.stringify({
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
       known:[...knownTerms], review:[...reviewTerms]
     }));
   } catch(e){}
 }
-async function loadGlossary(){
+function loadGlossary(){
   try{
-    const r = await window.storage.get(STORAGE_KEY);
-    if(r){
-      const d = JSON.parse(r.value);
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw){
+      const d = JSON.parse(raw);
       knownTerms = new Set(d.known||[]);
       reviewTerms = new Set(d.review||[]);
     }
@@ -1340,11 +1340,9 @@ if(window.speechSynthesis){
   if(window.speechSynthesis.onvoiceschanged!==undefined) window.speechSynthesis.onvoiceschanged=loadVoices;
   loadVoices();
 }
-(async()=>{
-  await loadGlossary();
-  updateStats();
-  renderConsult();
-})();
+loadGlossary();
+updateStats();
+renderConsult();
 </script>
 </body>
 </html>
